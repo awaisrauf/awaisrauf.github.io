@@ -8,7 +8,8 @@
       <!-- limit: site.news_limit  -->
         {% if item.selected  %}
           <tr>
-            <th scope="row">{{ item.date | date: "%b, %Y" }}</th>
+            <!-- &nbsp is for non-line-breaking space. -->
+            <th> {{ item.date | date: "%b,&nbsp%Y" }} </th>
             <td>
               {% if item.inline %}
                 {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}

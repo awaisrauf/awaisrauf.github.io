@@ -3,7 +3,7 @@ layout: about
 title: about
 importance: 1
 permalink: /
-description: Ph.D. Student and Asst. Researcher at <a href="#">Huawei Noah's Ark Lab </a>.
+description: 
 
 profile:
   align: right

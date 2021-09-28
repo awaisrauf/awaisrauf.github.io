@@ -6,7 +6,7 @@ inline: true
 selected: true
 ---
 
-*One paper got accepted at Conference on Neural Information Processing Systems (NeurIPS), 2021. 
+*One paper got accepted at Conference on Neural Information Processing Systems ([NeurIPS](https://nips.cc/)), 2021. 
 ***
 
 More details soon. 

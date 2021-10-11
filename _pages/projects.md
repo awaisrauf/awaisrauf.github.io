@@ -4,7 +4,7 @@ title: projects
 permalink: /projects/
 importance: 3
 description: 
-nav: true
+nav: false
 display_categories: [research, learning]
 horizontal: false
 ---

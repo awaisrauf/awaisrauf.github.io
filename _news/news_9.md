@@ -5,4 +5,4 @@ inline: true
 selected: true
 ---
 
-Our paper accepted in [IEEE Transactions on Neural Networks and Learning Systems (TNNLS)](https://cis.ieee.org/publications/t-neural-networks-and-learning-systems).
+One paper accepted in IEEE Transactions on Neural Networks and Learning Systems - [TNNLS](https://cis.ieee.org/publications/t-neural-networks-and-learning-systems).

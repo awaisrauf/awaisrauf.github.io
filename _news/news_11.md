@@ -2,13 +2,12 @@
 layout: post
 title: One paper accepted at International Conference on Computer Vision (ICCV).
 date: 2021-08-22 16:11:00-0400
-redirect: google.com
-inline: false
+redirect: false
+inline: true
 selected: true
 ---
 
-*One paper got accepted at International Conference on Computer Vision (ICCV), 2021. 
-***
+One paper got accepted at International Conference on Computer Vision - [ICCV, 2021](https://iccv2021.thecvf.com/home). For details, please visit [project page](https://awaisrauf.github.io/robust_uda).
 
-For more details, please have a look at [project page](https://awaisrauf.github.io/robust_uda). 
+
 

@@ -8,7 +8,7 @@ description:
 profile:
   align: right
   image: prof_pic.jpg
-  address: awais at khu dot ac dot kr
+  address: iawaisrauf at gmail dot com
   
 
 news: true  # includes a list of news items

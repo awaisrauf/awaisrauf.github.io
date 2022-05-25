@@ -6,4 +6,4 @@ inline: true
 selected: true
 ---
 
-Got travel funding by University of Sydney to attend [AustMS Workshop on Bridging Maths and Computer Science](https://sites.google.com/view/2022-workshop-bridgingmathstcs).
+Got travel funding from University of Sydney to attend [AustMS Workshop on Bridging Maths and Computer Science](https://sites.google.com/view/2022-workshop-bridgingmathstcs).

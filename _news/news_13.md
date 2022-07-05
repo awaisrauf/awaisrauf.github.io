@@ -1,6 +1,6 @@
 ---
 layout: post
-title: One paper got accepted at Conference on Neural Information Processing Systems (NeurIPS), 2021.
+title: Got travel funding.
 date: 2022-05-08 16:11:00-0400
 inline: true
 selected: true

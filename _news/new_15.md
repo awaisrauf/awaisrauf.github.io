@@ -6,5 +6,5 @@ inline: true
 selected: true
 ---
 
-One paper got accepted at Neural Information Processing Systems - NeurIPS, 2022.
+One paper got accepted at the Neural Information Processing Systems - NeurIPS, 2022.
 

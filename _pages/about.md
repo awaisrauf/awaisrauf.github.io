@@ -10,19 +10,38 @@ profile:
   image: prof_pic.jpg
   address: iawaisrauf at gmail dot com
   
-
-news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
+news: false  # includes a list of news items
 social: false  # includes social icons at the bottom of the page
 ---
 
-I am a research associate at MBZUAI ([among top-20 in AI research](https://csrankings.org/#/index?ai&vision&mlmining&nlp&world)).
+<style>
+  /*Style for muted links*/
+  .muted-link {
+    color: #888; /*Muted gray color*/
+    text-decoration: none; /*Remove underline*/
+  }
+  /*Style for muted links when hovered over*/
+  .muted-link:hover {
+    color: #555; /*Darker gray color when hovering*/
+  }
+</style>
 
-Previously, I was a student research assistant at [Sony AI](https://ai.sony/) (Japan) and as an assistant researcher at AI Theory Group of [Huawei's Noah Ark Lab](http://www.noahlab.com.hk/) in Hong Kong. I completed my Ph.D. from [MLVC Lab](https://sites.google.com/khu.ac.kr/mlvclab/) in South Korea, where I was a recipient of the presidential scholarship.
+I am a research associate at MBZUAI ([among top 20 AI research institutes](https://csrankings.org/#/index?ai&vision&mlmining&nlp&world)).
 
- I also served as a research associate at [SPIDER Research Lab]((http://www.spider.itu.edu.pk)) at [ITU](http://www.itu.edu.pk/) and a teaching assistant for two graduate courses (including [machine learning](https://awaisrauf.github.io/ee512/)) and three undergraduate courses.
+Previously, I was
+<ul>
+  <li> Student Research Assistant at <a href="https://ai.sony/">Sony AI</a>, Japan, working with <a href="https://sites.google.com/view/lingjuan-lyu/home" class="muted-link"> Dr. Lingjuan </a> and <a href="https://weiming.me" class="muted-link"> Dr. Weiming </a>   </li>
 
-  <!-- taught by [Usama Bin Sikandar](http://usamabinsikandar.weebly.com/teaching.html). -->
-  <!-- taught by [Dr. Ali Ahmed](https://itu.edu.pk/faculty-itu/dr-ali-ahmed/) -->
+  <li> Assistant Researcher at AI Theory Group of <a href="http://www.noahlab.com.hk/">Huawei's Noah Ark Lab</a> in Hong Kong, collaborating with <a href="" class="muted-link"> Dr. Fengwei</a>, <a href="" class="muted-link"> Dr. Chuanlong</a>, <a href="" class="muted-link"> Dr. Zhenguo</a>, and <a href="https://scholar.google.com.hk/citations?user=aXdjxb4AAAAJ&hl=en" class="muted-link"> Prof. Luo</a></li>
 
- <!-- I also like [📖 reading](), [🏛 traveling](), 🧑‍💻 coding and 👷🏼‍♂️ building stuff. -->
+  <li> Ph.D. Student and Researcher at <a href="https://sites.google.com/khu.ac.kr/mlvclab/">MLVC Lab</a> in South Korea, under the supervision of <a href="" class="muted-link"> Prof. Sung-Ho Bae</a></li>
+
+  <li> Research Associate at <a href="http://www.spider.itu.edu.pk">SPIDER Lab</a> at <a href="http://www.itu.edu.pk/" class="muted-link">ITU</a>, working with<a href="https://itu.edu.pk/faculty-itu/dr-ali-ahmed/" class="muted-link"> Dr. Ali </a></li>
+
+  <li> Teaching Assistant for graduate and undergraduate courses, including <a href="https://awaisrauf.github.io/ee512/" class="muted-link">machine learning</a>, with <a href="https://itu.edu.pk/faculty-itu/dr-ali-ahmed/" class="muted-link"> Dr. Ali </a> and <a href="http://usamabinsikandar.weebly.com/teaching.html" class="muted-link"> Dr. Usama </a></li>
+</ul>
+
+I have published my research in top venues, including [NeurIPS](), [ICCV](), and [TNNLS](). And, I have served as a reviewer in CVPR, ICLR, ICCV. I also [📊 won a national-level ml level competition](https://awaisrauf.github.io/election_prediction), [✈️ travel grant to attend AustMS](https://sites.google.com/view/2022-workshop-bridgingmathstcs) and [🖥 NVIDIA's grant of GPU](https://developer.nvidia.com/academic_gpu_seeding) for research.
+
+ I also like [📖 reading](https://www.goodreads.com/review/list/90419452-awais?page=1&per_page=100&print=true&ref=nav_mybooks&shelf=read&utf8), [🏛 traveling](), 🧑‍💻 coding and 👷🏼‍♂️ building stuff.

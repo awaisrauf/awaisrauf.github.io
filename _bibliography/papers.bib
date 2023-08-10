@@ -4,14 +4,51 @@
 @string{aps = {American Physical Society,}}
 
 
+@article{Awais.arXiv23,
+  abbr     = {arXiv},
+  title    = {Foundational Models Defining a New Era in Vision: A Survey and Outlook},
+  author   = {Awais, Muhammad and Muzammal, Naseer and Salman Khan and Rao Muhammad Anwer and Hisham Cholakkal and Mubarak Shah and Ming-Hsuan Yang and Fahad Shahbaz Khan},
+  journal  = {Under Review (arXiv)},
+  year     = {2023},
+  month    = {March},
+  selected = {true},
+  pdf={https://arxiv.org/pdf/2307.13721.pdf},
+  code={https://github.com/awaisrauf/Awesome-CV-Foundational-Models}
+
+}
+
+@article{Awais.arXiv,
+  abbr     = {arXiv},
+  title    = {FROD: Robust Object Detection for Free},
+  author   = {Awais, Muhammad and Weiming, Zhuang and Lingjuan and Lyu and Sung-Ho, Bae},
+  journal  = {Under Review (arXiv)},
+  year     = {2023},
+  month    = {March},
+  selected = {true}
+}
+
+@article{Awais.NeurIPS22,
+  abbr     = {NeurIPS},
+  title    = {ZooD: Exploiting model zoo for out-of-distribution generalization},
+  author   = {Qishi, Dong* and Awais, Muhammad and * and Fengwei Zhou and Chuanlong Xie and Tianyang Hu and Yongxin Yang and Sung-Ho, Bae and Zhenguo Li},
+  journal  = {Conference on Neural Information Processing Systems (NeurIPS)},
+  year     = {2022},
+  month    = {September},
+  selected = {true},
+  pdf={https://proceedings.neurips.cc/paper_files/paper/2022/file/cd305fdee96836d5cc1de94577d71b61-Paper-Conference.pdf}
+}
+
 @article{Awais.NeurIPS,
   abbr={NeurIPS},
   title={MixACM: Mixup-Based Robustness Transfer via Distillation of Activated Channel Maps},
   author={Awais, Muhammad and Fengwei, Zhou and Chuanlong, Xie and Jiawei, Li and Sung-Ho, Bae and Zhenguo, Li},
-  journal={Conference on Neural Information Processing Systems(NeurIPS)},
+  journal={Conference on Neural Information Processing Systems (NeurIPS)},
+  abstract={Deep neural networks are susceptible to adversarially crafted, small and imperceptible changes in the natural inputs. The most effective defense mechanism against these examples is adversarial training which constructs adversarial examples during training by iterative maximization of loss. The model is then trained to minimize the loss on these constructed examples. This min-max optimization requires more data, larger capacity models, and additional computing resources. It also degrades the standard generalization performance of a model. Can we achieve robustness more efficiently? In this work, we explore this question from the perspective of knowledge transfer. First, we theoretically show the transferability of robustness from an adversarially trained teacher model to a student model with the help of mixup augmentation. Second, we propose a novel robustness transfer method called Mixup-Based Activated Channel Maps (MixACM) Transfer. MixACM transfers robustness from a robust teacher to a student by matching activated channel maps generated without expensive adversarial perturbations. Finally, extensive experiments on multiple datasets and different learning scenarios show our method can transfer robustness while also improving generalization on natural images.},
   year={2021},
   month={September},
-  selected={true}
+  selected={true},
+  pdf={https://proceedings.neurips.cc/paper_files/paper/2021/file/240c945bb72980130446fc2b40fbb8e0-Paper.pdf},
+  webpage={https://awaisrauf.github.io/MixACM}
 }
 
 @article{Awais.ICCV21,
@@ -35,7 +72,7 @@
   title={Revisiting Internal Covariant Shift for Batch Normalization},
   author={Awais, Muhammad and Md. Tauhid Bin, Iqbal and Sung-Ho, Bae},
   abstract={Despite the success of Batch Normalization (BatchNorm) and a plethora of its variants, the exact reasons for its success are still shady. The original BatchNorm paper explained it as a mechanism that reduces the Internal Covariate Shift (ICS), i.e., the distribution shifts in the input of the layers during training. Recently, some papers manifested skepticism on this hypothesis and provided \textit{alternative explanations} for the success of BatchNorm, such as the applicability of very high learning rates and the ability to smooth the landscape in optimization. In this work, we counter this \ textit {alternative arguments} by demonstrating the importance of reduction in ICS following an empirical approach. We demonstrated various ways to achieve the above-mentioned alternative properties without any performance boost. In this light, we explored the importance of different BatchNorm parameters (i.e., batch statistics, affine transformation parameters) by visualizing their effectiveness in the performance and analyzed their connections with ICS. Afterward, we showed a different normalization scheme that fulfills all alternative explanations except reduction in ICS. Despite having all the alternative properties, we observed its poor performance, which nullifies the alternative claims rather signifies the importance of the ICS reduction. We performed comprehensive experiments on many variants of BatchNorm, finding that all of them similarly reduce ICS.},
-  journal={IEEE Transactions on Neural Networks and Learning Systems},
+  journal={IEEE Transactions on Neural Networks and Learning Systems (TNNLS)},
   volume={47},
   issue={10},
   pages={777--780},
@@ -50,7 +87,7 @@
 }
 
 @article{Awais.Arxiv20,
-  abbr={Arxiv},
+  abbr={arXiv},
   title={Towards Adversarially Robust Normalization Approach},
   author={Awais, Muhammad and Fahad, Shamshad and Sung-Ho, Bae},
   abstract={Batch Normalization (BatchNorm) is effective for improving performance and accelerating the training of deep neural networks. However, it is also a cause of adversarial vulnerability. In this paper, we first investigated how BatchNorm causes this vulnerability. We observed that adversarial inputs tend to shift the distributions of the BatchNorm layer. This shift makes train-time estimated statistics of BatchNorm inaccurate. We hypothesize that these inaccurate statistics make models with BatchNorm more vulnerable to adversarial attacks. We empirically verified our hypothesis by conducting multiple experiments on a diverse set of architectures and datasets. Based on the insights from these experiments, we also proposed a robust version of BatchNorm. We experimentally show that models trained with RobustNorm perform better under adversarial settings while retaining the benefits of BatchNorm.},

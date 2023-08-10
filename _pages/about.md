@@ -16,7 +16,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
-I have recently completed my Ph.D. and have joined MBZUAI ([among top-20 in AI research](https://csrankings.org/#/index?ai&vision&mlmining&nlp&world)) as a research associate.
+I am a research associate at MBZUAI ([among top-20 in AI research](https://csrankings.org/#/index?ai&vision&mlmining&nlp&world)).
 
 Previously, I was a student research assistant at [Sony AI](https://ai.sony/) (Japan) and as an assistant researcher at AI Theory Group of [Huawei's Noah Ark Lab](http://www.noahlab.com.hk/) in Hong Kong. I completed my Ph.D. from [MLVC Lab](https://sites.google.com/khu.ac.kr/mlvclab/) in South Korea, where I was a recipient of the presidential scholarship.
 

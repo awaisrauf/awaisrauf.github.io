@@ -1,7 +1,7 @@
 # Personal Website
 <!--  -->
 
-A simple personal website based on [Jekyll's](https://jekyllrb.com/) [al-folio](https://github.com/alshedivat/al-folio) theme.
+My personal website based on [Jekyll's](https://jekyllrb.com/) [al-folio](https://github.com/alshedivat/al-folio) theme.
 
 ## Getting started
 
@@ -23,8 +23,7 @@ $ bundle exec jekyll serve
 
 #### Deployment
 
-Deploying your website to [GitHub Pages](https://pages.github.com/) is the most popular option.
-Starting version [v0.3.5](https://github.com/alshedivat/al-folio/releases/tag/v0.3.5), **al-folio** will automatically re-deploy your webpage each time you push new changes to your repository! :sparkles:
+After building locally, push all the changes. The site will be deployed frm `gh-pages` which contains local build. 
 
 **For project pages (default):**
 

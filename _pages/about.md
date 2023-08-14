@@ -27,7 +27,7 @@ social: false  # includes social icons at the bottom of the page
   }
 </style>
 
-I am a research associate at MBZUAI ([among top 20 AI research institutes](https://csrankings.org/#/index?ai&vision&mlmining&nlp&world)). Broadly, my research interests are exploring the vulnerabilities of ML models and efficient training and evaluation of robust and safe models.
+I am a research associate at MBZUAI ([among top 20 AI research institutes](https://csrankings.org/#/index?ai&vision&mlmining&nlp&world)). 
 
 Previously, I was
 <ul>

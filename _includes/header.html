@@ -64,6 +64,12 @@
               {% endfor %}
               </div>
           </li>
+          <!-- Blog Button -->
+          <li class="nav-item">
+            <a class="nav-link" href="https://awaisrauf.github.io/deepCuriosity/" target="_blank">
+              blog
+            </a>
+          </li>
           {% else %}
           <li class="nav-item {% if page.title == p.title %}active{% endif %}">
               <a class="nav-link" href="{{ p.url | relative_url }}">

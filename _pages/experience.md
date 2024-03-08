@@ -7,6 +7,8 @@ description: .
 nav: false
 ---
 
+----
+
 ## Research Experience 
 
 - Research Associate at MBZ University of AI, United Arab Emirates

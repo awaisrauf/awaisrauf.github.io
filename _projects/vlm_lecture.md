@@ -13,4 +13,4 @@ These are slides for a guest lecture on foundational vision-language models deli
 I covered core concepts in the evolution of vision-language models by explaining eight different large vision-language models. 
 
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTEhjn_Zw-MwjuXOt8xcSzgT4cgvX0e9YbqRArU2EJM6QauCX5vuneiLi55FIrbfjaqRL_BVTBqU5ok/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTEhjn_Zw-MwjuXOt8xcSzgT4cgvX0e9YbqRArU2EJM6QauCX5vuneiLi55FIrbfjaqRL_BVTBqU5ok/embed?start=false&loop=false&delayms=3000" frameborder="0" width="675" height="400" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>

@@ -5,6 +5,7 @@ description: A guest lecture I delivered at MBZUAI in September 2023.
 year: 2023
 img: /assets/project_assets/vlm_lecutre/lecture.png
 importance: 1
+permalink: /vlm_lecture
 category: teaching
 ---
 

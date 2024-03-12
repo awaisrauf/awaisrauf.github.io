@@ -9,8 +9,6 @@ permalink: /vlm_lecture
 category: teaching
 ---
 
-# Vision-Language Foundational Models 
-
 These are slides for a guest lecture on foundational vision-language models delivered at [MBZ University of Artificial Intelligence](https://mbzuai.ac.ae/) in **September 2023**. 
 I covered core concepts in the evolution of vision-language models by explaining eight different large vision-language models. 
 

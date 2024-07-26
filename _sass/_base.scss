@@ -73,6 +73,18 @@ blockquote {
     }
   }
 }
+@media (max-width: 576px) {
+  .profile {
+    width: 30%;
+    font-size: 10px;
+    .address {
+      p { 
+        font-size: 2px;
+        display: block;
+        }
+    }
+  }
+}
 
 .post-description {
   margin-bottom: 2rem;

@@ -6,4 +6,5 @@ inline: true
 selected: true
 ---
 
-I have joined SonyAI, Japan as an assistant researcher. I will be working with the great Dr. [Lingjuan Lyu](https://sites.google.com/view/lingjuan-lyu/home).
+I have joined SonyAI, Japan as an assistant researcher.
+<!-- I will be working with the great Dr. [Lingjuan Lyu](https://sites.google.com/view/lingjuan-lyu/home). -->

@@ -1,7 +1,168 @@
 ---
 layout: None
-title: 
+title: Efficient 3D-Aware Facial Image Editing via Attribute-Specific Prompt Learning
 permalink: /3d_face_editing
 ---
+<!DOCTYPE html>
+<html>
 
-Under construction
+<head>
+    <title>Efficient 3D-Aware Facial Image Editing via Attribute-Specific Prompt Learning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="Path to my teaser.png" />
+    <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+    <meta property="og:title" content="Efficient 3D-Aware Facial Image Editing" />
+    <meta property="og:description" content="Paper description." />
+
+    <!-- DO YOU SHARE A DATASET? IF YES INSERT THE CODE FROM https://developers.google.com/search/docs/data-types/dataset -->
+    <!-- DATASET CODE START -->
+
+    <!-- DATASET CODE END -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']]
+            }
+        };
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="./assets/project_assets/3d_face_editing/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="columns is-centered is-multiline is-mobile">
+                <div class="column is-full has-text-centered py-5">
+                    <h1 class="title is-1">Efficient 3D-Aware Facial Image Editing via Attribute-Specific Prompt Learning</h1>
+                </div>
+                <div class="column is-10 has-text-centered">
+                    <address class="author"><a rel="author" href="https://virobo-15.github.io/">Amandeep Kumar*</a></address>
+                    <address class="author"><a rel="author" href="https://awaisrauf.github.io/">Awais Rauf*</a></address>
+                    <address class="author"><a rel="author" href="https://sites.google.com/view/sanath-narayan">Sanath Narayan</a></address>
+                    <address class="author"><a rel="author" href="https://mbzuai.ac.ae/study/faculty/hisham-cholakkal/">Hisham Cholakkal</a></address>
+                    <address class="author"><a rel="author" href="https://salman-h-khan.github.io/">Salman Khan</a></address>
+                    <address class="author"><a rel="author" href="https://mbzuai.ac.ae/study/faculty/rao-muhammad-anwer/">Rao Muhammad Anwer</a></address>
+                    <br>
+                    * denotes joint first authors.
+                </div>
+                
+                <div class="column is-9 has-text-centered pb-4 nav">
+                    <a href="https://arxiv.org/abs/2406.04413">[📗 Paper]</a>
+                    <a href="https://github.com/VIROBO-15/Efficient-3D-Aware-Facial-Image-Editing">[👨‍💻 GitHub]</a>
+                </div>
+            </div>
+        </div>
+    </header>
+        <section id="figure">
+            <div class="container has-text-centered">
+                <figure class="round">
+                    <img src="assets/project_assets/3d_face_editing/demo.svg" width="800" />
+                </figure>
+            </div>
+        </section>
+    <section class="section">
+        <div class="container has-text-centered">
+            <h2 class="title is-2">🧵 Abstract</h2>
+            <p style="text-align: justify;">Drawing upon StyleGAN's expressivity and disentangled latent space, existing 2D approaches employ textual prompting to
+            edit facial images with different attributes. In contrast, 3D-aware approaches that generate faces at different target
+            poses require attribute-specific classifiers, learning separate model weights for each attribute, and are not scalable
+            for novel attributes. In this work, we propose an efficient, plug-and-play, 3D-aware face editing framework based on
+            attribute-specific prompt learning, enabling the generation of facial images with controllable attributes across various
+            target poses. To this end, we introduce a text-driven learnable style token-based latent attribute editor (LAE). The LAE
+            harnesses a pre-trained vision-language model to find text-guided attribute-specific editing direction in the latent
+            space of any pre-trained 3D-aware GAN. It utilizes learnable style tokens and style mappers to learn and transform this
+            editing direction to 3D latent space. To train LAE with multiple attributes, we use directional contrastive loss and
+            style token loss. Furthermore, to ensure view consistency and identity preservation across different poses and
+            attributes, we employ
+            several 3D-aware identity and pose preservation losses. Our experiments show that our proposed framework generates
+            high-quality images with 3D awareness and view consistency while maintaining attribute-specific features. We demonstrate
+            the effectiveness of our method on different facial attributes, including hair color and style, expression, and others.
+</p>
+        </div>
+    </section>
+    <section >
+        <div class="container my-4 has-text-centered">
+            <h2 class="title is-2">🧑‍🔧 Method</h2>
+            <div class="container has-text-centered">
+                <p class="cusom-p">
+                    Following figure presents our overall framework comprising a mapping network $f_{map}$, language-driven attribute
+                    editor $LAE$, RGB image ($C$) and $\alpha$-maps generator $f_G$ and a differentiable renderer $R$. Given a noise
+                    code $z\sim \mathcal{N}(0, 1)$, the mapping network maps it to the latent code $w \in \mathcal{W}$.
+                    Further, this latent code $w$ is edited within the $LAE$ module by input prompt $P_A^i$ (a combination of attribute
+                    prompt $A^i$, system prompt $t$, and learnable style tokens $V_i$). In particular, within the $LAE$,
+                    attribute-specific
+                    tokens $P_A^i$ are learned and mapped into textual embeddings $f_T$ using a text encoder $f_T(.)$. The resulting
+                    $f_T$
+                    and latent code $w$ are then utilized to obtain the edited latent code $\hat{w}$ using style mappers $M_c$, $M_m$,
+                    and
+                    $M_f$. The edited $\hat{w}$ output by $LAE$ is subsequently fed into RGB-$\alpha$ generator $f_G$, which generates
+                    RGB
+                    image and alpha maps, which are then fed to the renderer $R$ for synthesizing images with the desired attributes at
+                    specified target poses $p_t$.
+                </p>
+                <br>
+                <section id="figure">
+                    <figure class="round">
+                        <img src="assets/project_assets/3d_face_editing/method.svg" width="800" />
+                    </figure>
+                </section>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class=" container my-4 has-text-centered">
+            <h2 class="title is-2">📊 Results</h2>
+    
+            <div class="container has-text-centered">
+                <br>
+        <section id="figure">
+            <figure class="round">
+                <img src="assets/project_assets/3d_face_editing/results_main.svg" width="800" />
+            </figure>
+        </section>
+        
+        </div>
+
+        </div>
+    </section>
+    <section>
+        <br>
+        <div class="container my-4 has-text-centered">
+            <h2 class="title is-2">Paper and Supplementary Material</h2>
+            <div class="columns is-mobile is-centered is-vcentered">
+                <div class="column has-text-right is-hidden-touch">
+                    <img src="./assets/project_assets/3d_face_editing/paper.png" alt="Paper" class="layered-paper-big" width="170">
+                </div>
+                <div class="column has-text-left has-text-centered-touch">
+                    A. Kumar et al. <br>
+                    <b>Efficient 3D-Aware Facial Image Editing.</b><br>
+                    In ECCV, 2024.
+                    <br />
+                    <span class="nav">
+                        <a href="https://arxiv.org/abs/2406.04413">[ArXiv]</a>
+                        <a href="">[Camera ready]</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <h6>Credits for Webapge</h6>
+            <p>
+                Originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a
+                    href="http://richzhang.github.io/">Richard Zhang</a> for <a
+                    href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a
+                    href="https://github.com/richzhang/webpage-template">here</a>. Refactoring by <a href="https://github.com/richzhang/webpage-template/pull/1"> Marco De Nadai</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

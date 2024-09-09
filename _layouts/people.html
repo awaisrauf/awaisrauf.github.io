@@ -1,0 +1,95 @@
+---
+layout: default
+---
+<style>
+    
+    .item-list {
+        list-style-type: disc; /* Default bullet points */
+        padding-left: 20px; /* Space from the left edge */
+    }
+    .item-list li {
+        margin-bottom: 10px; /* Space between items */
+    }
+    .person-circle {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .person-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .person-text {
+        text-align: center;
+        margin-top: 5px;
+        font-size: 16px;
+    }
+
+    .person-container {
+        margin: 10px 0;
+    }
+
+    .person-link {
+        text-decoration: none;
+        color: #007bff;
+        transition: color 0.3s;
+    }
+
+    /* Styles for mobile screens (less than 768px) */
+    @media (max-width: 767px) {
+        .person-circle {
+            width: 110px;
+            height: 110px;
+        }
+
+        .person-text {
+            font-size: 14px;
+        }
+    }
+
+    /* Additional Styles for larger screens (992px and up) */
+    @media (min-width: 992px) {
+        .person-container {
+            margin-bottom: 20px;
+            /* Adjust the spacing between rows */
+        }
+    }
+</style>
+
+
+
+<body>
+    <h1>{{ page.title }}</h1>
+    <div>
+    I am fourtunate that I get to work with amazing people.
+        <ul class="item-list">
+            <li>At MBZUAI, I worked with Dr. Rao, Dr. Salman Khan, Dr. Fahad, Dr. Hisham at MBZUAI,</li>
+            <li>Dr. Lingjuan and Dr. Weiming at Sony AI, Dr. Fengwei, Dr. Chuanlong, Dr. Zhenguo, and Prof. Luo at Huawei,</li>
+            <li>Prof. Sung-Ho for Ph.D. supervision,</li>
+            <li>Dr. Ali and Dr. Usama at ITU</li>
+        </ul>
+    </div>
+    <h4>Students</h4>
+    <br>
+    <div class="container">
+        <div class="row">
+            {% for person in site.data.students %}
+            <div class="col-6 col-md-4 col-lg-3 person-container text-center">
+                <div class="person-circle">
+                    <img src="{{ person.img }}" alt="{{ person.name }}">
+                </div>
+                <div class="person-text">
+                    <a class="person-link" href="{{ person.link }}">{{ person.name }}</a>
+                    <p>  {{ person.text }} </p>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>

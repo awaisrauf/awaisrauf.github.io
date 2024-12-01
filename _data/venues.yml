@@ -1,0 +1,25 @@
+TPAMI:
+  url: "https://example.com"
+  name: "Venue One"
+arXiv:
+  url: "https://anotherexample.com"
+  name: "Venue Two"
+NeurIPS:
+  url: "https://anotherexample.com"
+  name: "Venue Two"
+ICCV:
+  url: "https://anotherexample.com"
+  name: "Venue Two"
+ECCV:
+  url: "https://anotherexample.com"
+  name: "Venue Two"
+WACV:
+  url: "https://anotherexample.com"
+  name: "Venue Two"
+TNNLS:
+  url: "https://anotherexample.com"
+  name: "Venue Two"
+MICCAI:
+  url: "https://anotherexample.com"
+  name: "Venue Two"
+

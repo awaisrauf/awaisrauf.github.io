@@ -1,0 +1,20 @@
+.robustness {
+  background-color: #b5ead7;
+  font-size: 12px;
+}
+
+.paper-image {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .paper-image {
+    display: block;
+    max-width: 100%;
+    float: left;
+    margin-top: 10px;
+    margin-right: 5px; /* Space between image and text */
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+  }
+}

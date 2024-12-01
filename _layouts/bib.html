@@ -1,23 +1,36 @@
 ---
 ---
+<!-- <style>
+.paper-image {
+  float: left;
+  margin-top: 5px;
+  margin-right: 10px; /* Space between image and text */
+  width: 80; /* Adjust size as needed */
+  height: auto;
+}
+</style> -->
 
 <div class="row">
-  <div class="col-sm-2 abbr">
+
+  <div class="col-sm-3 abbr">
   {% if entry.abbr %}
     {% if site.data.venues[entry.abbr] %}
-    <abbr class="badge"><a href="{{site.data.venues[entry.abbr].url}}" target="_blank">{{entry.abbr}}</a></abbr>
+    <abbr class="badge text-bg-secondary"><a href="{{site.data.venues[entry.abbr].url}}" target="_blank">{{entry.abbr}}</a></abbr>
     {% else %}
-    <abbr class="badge">{{entry.abbr}}</abbr>
+    <abbr class="badge text-bg-secondary">{{entry.abbr}}</abbr> 
     {% endif %}
   {% endif %}
+  <img class="paper-image" src="/assets/img/publication_preview/{{entry.preview}}" alt="Paper Image">
 
   </div>
 
-  <div id="{{entry.key}}" class="col-sm-8">
+
+  <div id="{{entry.key}}" class="col-sm-9">
     {% if entry.type == "thesis" %}
       {{reference}}
     {% else %}
       <div class="title">{{entry.title}}</div>
+      <!-- <span class="robustness">Privacy & Security</span> -->
       <div class="author">
         {% for author in entry.author_array %}
           {% assign author_is_self = false %}

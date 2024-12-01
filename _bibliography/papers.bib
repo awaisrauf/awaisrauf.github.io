@@ -4,28 +4,58 @@
 @string{aps = {American Physical Society,}}
 
 
-@article{Awais.arXiv23,
-  abbr     = {arXiv},
+@article{Awais.arXiv24,
+  abbr     = {TPAMI},
   title    = {Foundational Models Defining a New Era in Vision: A Survey and Outlook},
-  author   = {Awais, Muhammad and Muzammal, Naseer and Salman Khan and Rao Muhammad Anwer and Hisham Cholakkal and Mubarak Shah and Ming-Hsuan Yang and Fahad Shahbaz Khan},
-  journal  = {Under Review},
-  year     = {2023},
-  month    = {July},
+  author   = {Awais, Muhammad and Muzammal, Naseer and Salman Khan and Rao Anwer and Hisham Cholakkal and Mubarak Shah and Ming-Hsuan Yang and Fahad Shahbaz Khan},
+  journal  = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year     = {2024},
+  month    = {Nov},
   selected = {true},
   pdf={https://arxiv.org/pdf/2307.13721.pdf},
   code={https://github.com/awaisrauf/Awesome-CV-Foundational-Models},
-  preview={tpami23_preview.svg}
-
+  preview={tpami23_preview.png},
+  tags={multi-modal learning}
 }
 
 @article{Awais.arXiv,
   abbr     = {arXiv},
-  title    = {FROD: Robust Object Detection for Free},
-  author   = {Awais, Muhammad and Weiming, Zhuang and Lingjuan and Lyu and Sung-Ho, Bae},
+  title    = {Leveraging Pre-trained Models for Efficient Cross-task Robustness Transfer for Object Detection},
+  author   = {Awais Muhammad and Weiming, Zhuang and Lingjuan, Lyu and Sung-Ho, Bae},
   journal  = {Under Review (arXiv)},
-  year     = {2023},
+  year     = {2024},
   month    = {March},
-  selected = {true}
+  selected = {true},
+  preview={frod.png},
+  pdf={https://arxiv.org/pdf/2308.01888},
+  abstract={Object detection is an important task in computer vision and plays an essential role in many security-critical systems. Despite significant recent advancements, state-of-the-art object detection models remain vulnerable to small adversarial perturbations, which malicious actors can exploit to manipulate the model’s output. Unlike classification, the robustness of object detection models has received relatively limited attention, with most existing work focusing on adapting adversarial training. In this paper, we take a different approach, leveraging classification-based robust models to enhance the robustness of object detection. However, directly incorporating a classification-based robust backbone into object detection training can result in catastrophic forgetting of robust features. To address this issue, we propose efficient modifications to the robust backbone, enabling adversarial robustness with standard training. Additionally, we introduce a theoretically grounded, efficient two-phase training strategy that achieves state-of-the-art robustness. Our method first trains on normal examples while preserving robust features in the backbone, followed by adversarial training on single-step adversarial examples in the final stages of training. Our approach achieves state-of-the-art robustness and significantly improves efficiency compared to traditional adversarial training methods. Extensive experiments on the MS-COCO and Pascal VOC datasets validate the effectiveness of our proposed approach.}
+}
+
+@article{Kumar.eccv24,
+  abbr = {ECCV},
+  title={Efficient 3D-Aware Facial Image Editing via Attribute-Specific Prompt Learning},
+  author={Kumar, Amandeep and Awais, Muhammad and Narayan, Sanath and Cholakkal, Hisham and Khan, Salman and Anwer, Rao},
+  journal={European Conference on Computer Vision},
+  pages={124--141},
+  year={2024},
+  organization={Springer},
+  selected = {true},
+  preview={eccv24.png},
+  slides={https://docs.google.com/presentation/d/11075T-pBxNIbvKGALQkKaRAQpNtmYbp82qx6zvAvu8g/edit#slide=id.g2d37125c826_1_15},
+  html={https://awaisrauf.github.io/3d_face_editing}
+}
+
+@article{hanif2024baple,
+  abbr = {MICCAI},
+  title={Baple: Backdoor attacks on medical foundational models using prompt learning},
+  author={Hanif, Asif and Shamshad, Fahad and Awais, Muhammad and Naseer, Muzammal and Khan, Fahad Shahbaz and Nandakumar, Karthik and Khan, Salman and Anwer, Rao},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={443--453},
+  year={2024},
+  organization={Springer},
+  preview={miccai24.png},
+  pdf={https://papers.miccai.org/miccai-2024/paper/3117_paper.pdf},
+  code={https://github.com/asif-hanif/baple}
 }
 
 @article{Awais.NeurIPS22,
@@ -36,7 +66,17 @@
   year     = {2022},
   month    = {September},
   selected = {true},
-  pdf={https://proceedings.neurips.cc/paper_files/paper/2022/file/cd305fdee96836d5cc1de94577d71b61-Paper-Conference.pdf}
+  pdf={https://proceedings.neurips.cc/paper_files/paper/2022/file/cd305fdee96836d5cc1de94577d71b61-Paper-Conference.pdf},
+  preview={Zood.png}
+}
+
+@article{Awais.agroGPT,
+  abbr = {WACV},
+  title   = {AgroGPT: Efficient Agricultural Vision-Language Model with Expert Tuning},
+  author  = {Awais, Muhammad and Ali Husain Salem Abdulla Alharthi and Amandeep Kumar and Hisham Cholakkal and Rao Muhammad Anwer},
+  year    = {2024},
+  journal = {IEEE/CVF Winter Conference on Applications of Computer Vision},
+  preview={agrogpt25.png}
 }
 
 @article{Awais.NeurIPS,
@@ -49,7 +89,8 @@
   month={September},
   selected={true},
   pdf={https://proceedings.neurips.cc/paper_files/paper/2021/file/240c945bb72980130446fc2b40fbb8e0-Paper.pdf},
-  webpage={https://awaisrauf.github.io/MixACM}
+  webpage={https://awaisrauf.github.io/MixACM},
+  preview={mixacm.png}
 }
 
 @article{Awais.ICCV21,
@@ -65,7 +106,8 @@
   webpage={http://awaisrauf.github.io/robust_uda},
   html={http://awaisrauf.github.io/robust_uda},
   pdf={https://arxiv.org/pdf/2109.00946.pdf},
-  selected={true}
+  selected={true},
+  preview={iccv22.png}
 }
 
 @article{Awais.TNNLS20,
@@ -84,21 +126,23 @@
   doi={10.1109/TNNLS.2020.3026784},
   html={https://ieeexplore.ieee.org/document/9238401},
   webpage={https://ieeexplore.ieee.org/document/9238401},
-  selected={true}
+  selected={true},
+  preview={tnnls20.png}
 }
 
 @article{Awais.Arxiv20,
   abbr={arXiv},
-  title={Towards Adversarially Robust Normalization Approach},
-  author={Awais, Muhammad and Fahad, Shamshad and Sung-Ho, Bae},
-  abstract={Batch Normalization (BatchNorm) is effective for improving performance and accelerating the training of deep neural networks. However, it is also a cause of adversarial vulnerability. In this paper, we first investigated how BatchNorm causes this vulnerability. We observed that adversarial inputs tend to shift the distributions of the BatchNorm layer. This shift makes train-time estimated statistics of BatchNorm inaccurate. We hypothesize that these inaccurate statistics make models with BatchNorm more vulnerable to adversarial attacks. We empirically verified our hypothesis by conducting multiple experiments on a diverse set of architectures and datasets. Based on the insights from these experiments, we also proposed a robust version of BatchNorm. We experimentally show that models trained with RobustNorm perform better under adversarial settings while retaining the benefits of BatchNorm.},
-  journal={Under Review},
-  year={2020},
-  month={June},
-  publisher=Arxiv,
+  title={Adversarial attacks and batch normalization: a batch statistics perspective},
+  author={Awais, Muhammad and Shamshad, Fahad and Bae, Sung-Ho},
+  journal={IEEE Access},
+  volume={11},
+  pages={96449--96459},
+  year={2023},
+  publisher={IEEE},
   url={https://arxiv.org/abs/2006.11007},
-  pdf={https://arxiv.org/pdf/2006.11007.pdf},
-  selected={true}
+  pdf={https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10056932},
+  selected={false},
+  preview={adv_batch.png}
 }
 
 @article{Awais.JAIHC.19,
@@ -110,7 +154,8 @@
   month={July},
   publisher=Springer,
   html={https://awaisrauf.github.io/election_prediction},
-  selected={false}
+  selected={false},
+  preview={election2018.png}
 }
 
 @article{Fahad.ICCVw.19,
@@ -123,7 +168,8 @@
   month={September},
   publisher=IEEE,
   pdf={https://openaccess.thecvf.com/content_ICCVW_2019/papers/LCI/Shamshad_Adaptive_Ptych_Leveraging_Image_Adaptive_Generative_Priors_for_Subsampled_Fourier_ICCVW_2019_paper.pdf},
-  selected={false}
+  selected={false},
+  preview={iccvw2019.png}
 }
 
 @article{Fahad.NIPSw.18,
@@ -133,7 +179,9 @@
   journal={Neural Information Processing Systems Workshops},
   year={2018},
   html={http://awaisrauf.github.io/xray-denoising},
-  selected={false}
+  pdf={https://arxiv.org/pdf/1811.12488},
+  selected={false},
+  preview={nipsw18.png}
 }
 
 @article{Asim.ICTD.17,
@@ -143,6 +191,8 @@
   journal={Conference on Information and Communication Technologies and Development },
   year={2017},
   html={https://dl.acm.org/doi/10.1145/3136560.3136597},
-  selected={false}
+  selected={false},
+  preview={ictd17.png}, 
+  pdf={https://www.researchgate.net/publication/321138428_Introducing_Data_mining_for_Predicting_trends_in_School_Education_of_Pakistan_Preliminary_results_and_Future_Directions}
 }
 

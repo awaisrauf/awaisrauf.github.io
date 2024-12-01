@@ -7,7 +7,4 @@ inline: true
 selected: true
 ---
 
-One paper got accepted in International Conference on Computer Vision - [ICCV, 2021](https://iccv2021.thecvf.com/home). For details, please visit [project page](https://awaisrauf.github.io/robust_uda).
-
-
-
+Two papers got accepted at NeurIPS and ICCV.

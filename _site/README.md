@@ -52,6 +52,25 @@ After building locally, push all the changes. The site will be deployed frm `gh-
 
 5. Project Websites: All project webpage files will reside in `_projects/project_name/` and their assets in `assets/projects/project_name/assets/`.
 
+6. Added a mobile version for profile picture in the `_base.scss`
+
+  ```css
+  @media (max-width: 576px) {
+    .profile {
+      width: 30%;
+      font-size: 10px;
+      .address {
+        p { 
+          font-size: 2px;
+          display: block;
+          }
+      }
+    }
+  }
+```
+
+7. Added `_papers.scss` for styling of `bib.html` files.
+
 ## Theme Features
 
 ### Publications

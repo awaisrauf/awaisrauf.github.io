@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+      <h1 class="page-heading"> {{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  <div>
+    {% for talk in site.data.talks %}
+        {%- if talk.link -%}
+            <p markdown=1>
+            {{ talk.text }}
+            </p>
+            <div class="embed-container" style="margin: auto; position: relative; padding-bottom: 59.27%; height: 0; overflow: hidden; max-width: 100%;">
+            <iframe style="position: absolute; top: 0; left: 0; width: 80%; height: 80%;"
+            src="{{ talk.link }}" frameborder="0" width="480" height="299" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+            </div>
+        {%- endif -%} 
+    {% endfor %}
+  </div>
+</div>

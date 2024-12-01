@@ -1,0 +1,53 @@
+cities:
+  - city: Paris
+    flag: 🇫🇷
+    circle_image: /assets/img/cities/abudhabi.jpeg
+    url: /paris/
+  - city: Amsterdam
+    flag: 🇳🇱
+    circle_image: /assets/img/cities/dubai.jpeg
+    url: /amsterdam/
+  - city: Berlin
+    flag: 🇩🇪
+    circle_image: /assets/img/cities/tokyo.jpeg
+    url: /berlin/
+  - city: Berlin
+    flag: 🇩🇪
+    circle_image: /assets/img/cities/boston.jpeg
+    url: /berlin/
+  - city: Berlin
+    flag: 🇩🇪
+    circle_image: /assets/img/cities/nyc.jpeg
+    url: /berlin/
+  - city: Osaka
+    flag: 🇩🇪
+    circle_image: /assets/img/cities/osaka.jpeg
+    url: /berlin/
+  - city: Washington
+    flag: 🇩🇪
+    circle_image: /assets/img/cities/washington.jpeg
+    url: /berlin/
+  - city: Washington
+    flag: 🇩🇪
+    circle_image: /assets/img/cities/washington.jpeg
+    url: /berlin/
+  - city: Washington
+    flag: 🇩🇪
+    circle_image: /assets/img/cities/washington.jpeg
+    url: /berlin/
+  - city: Washington
+    flag: 🇩🇪
+    circle_image: /assets/img/cities/washington.jpeg
+    url: /berlin/
+  - city: Washington
+    flag: 🇩🇪
+    circle_image: /assets/img/cities/washington.jpeg
+    url: /berlin/
+  - city: Washington
+    flag: 🇩🇪
+    circle_image: /assets/img/cities/washington.jpeg
+    url: /berlin/
+  - city: Washington
+    flag: 🇩🇪
+    circle_image: /assets/img/cities/washington.jpeg
+    url: /berlin/

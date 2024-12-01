@@ -17,6 +17,7 @@ nav: false
 - Research Assistant at SPIDER Lab Information Tech. University
 
 ### Teaching Experience
+
 - Teaching Assisant for Advance Computer Vision Course at MBZ University of AI
 - Teaching Assisant for five courses at Information Tech. University
   - Statistical Machine Learning, Advance Signal Processing, Differential Equations, Control Systems, Applied Physics
@@ -29,6 +30,6 @@ I am fourtunate that I get to work with amazing people: Dr. Lingjuan and Dr. Wei
 
 I am glad that I get to mentor great students, including Amandeep Kumar, xx. 
 
-### Reviewing 
+### Reviewing
 
 And I have served as a reviewer in CVPR, ICLR, ICCV and NeurIPS

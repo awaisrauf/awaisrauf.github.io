@@ -27,7 +27,8 @@ layout: default
     .person-text {
         text-align: center;
         margin-top: 5px;
-        font-size: 16px;
+        font-size: 12px;
+        text-align: left;
     }
 
     .person-container {
@@ -62,18 +63,22 @@ layout: default
 </style>
 
 
-
 <body>
     <h1>{{ page.title }}</h1>
     <div>
-    I am fourtunate that I get to work with amazing people.
+    <!-- I am fourtunate that I get to work with amazing people.
         <ul class="item-list">
             <li>At MBZUAI, I worked with Dr. Rao, Dr. Salman Khan, Dr. Fahad, Dr. Hisham at MBZUAI,</li>
             <li>Dr. Lingjuan and Dr. Weiming at Sony AI, Dr. Fengwei, Dr. Chuanlong, Dr. Zhenguo, and Prof. Luo at Huawei,</li>
             <li>Prof. Sung-Ho for Ph.D. supervision,</li>
             <li>Dr. Ali and Dr. Usama at ITU</li>
         </ul>
-    </div>
+    </div> -->
+    <p>
+            I am fourtunate that I get to work with amazing people: Dr. Salman, Dr. Fahad, Dr. Rao and Dr. Muzammal at MBZUAI. <a href="https://sites.google.com/view/lingjuan-lyu/home" class="muted-link"> Dr. Lingjuan </a> and <a href="https://weiming.me" class="muted-link"> Dr. Weiming </a> at Sony AI, <a href="https://scholar.google.com.hk/citations?user=1M00Yg8AAAAJ&hl=zh-TW" class="muted-link"> Dr. Fengwei</a>, <a href="https://scholar.google.com/citations?user=_fgE3u8AAAAJ&hl=en" class="muted-link"> Dr. Chuanlong</a>, <a href="https://scholar.google.com/citations?user=XboZC1AAAAAJ&hl=en" class="muted-link"> Dr. Zhenguo</a>, and <a href="https://scholar.google.com.hk/citations?user=aXdjxb4AAAAJ&hl=en" class="muted-link"> Prof. Luo</a> at Huawei, <a href="https://scholar.google.co.kr/citations?user=EULut5oAAAAJ&hl=ko" class="muted-link"> Prof. Sung-Ho</a> for Ph.D. supervision, and <a href="https://itu.edu.pk/faculty-itu/dr-ali-ahmed/" class="muted-link"> Dr. Ali </a> and <a href="http://usamabinsikandar.weebly.com/teaching.html" class="muted-link"> Dr. Usama </a> at ITU.
+
+    </p>
+
     <h4>Students</h4>
     <br>
     <div class="container">
@@ -83,9 +88,9 @@ layout: default
                 <div class="person-circle">
                     <img src="{{ person.img }}" alt="{{ person.name }}">
                 </div>
-                <div class="person-text">
+                <div>
                     <a class="person-link" href="{{ person.link }}">{{ person.name }}</a>
-                    <p>  {{ person.text }} </p>
+                    <p class="person-text">  {{ person.text }} </p>
                     
                 </div>
             </div>

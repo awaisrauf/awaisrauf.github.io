@@ -21,7 +21,7 @@
 @article{Awais.arXiv,
   abbr     = {arXiv},
   title    = {Leveraging Pre-trained Models for Efficient Cross-task Robustness Transfer for Object Detection},
-  author   = {Awais Muhammad and Weiming, Zhuang and Lingjuan, Lyu and Sung-Ho, Bae},
+  author   = {Awais, Muhammad and Weiming, Zhuang and Lingjuan, Lyu and Sung-Ho, Bae},
   journal  = {Under Review (arXiv)},
   year     = {2024},
   month    = {March},
@@ -34,7 +34,7 @@
 @article{Kumar.eccv24,
   abbr = {ECCV},
   title={Efficient 3D-Aware Facial Image Editing via Attribute-Specific Prompt Learning},
-  author={Kumar, Amandeep and Awais, Muhammad and Narayan, Sanath and Cholakkal, Hisham and Khan, Salman and Anwer, Rao},
+  author={Kumar, Amandeep* and Awais, Muhammad* and Narayan, Sanath and Cholakkal, Hisham and Khan, Salman and Anwer, Rao},
   journal={European Conference on Computer Vision},
   pages={124--141},
   year={2024},
@@ -47,7 +47,7 @@
 
 @article{hanif2024baple,
   abbr = {MICCAI},
-  title={Baple: Backdoor attacks on medical foundational models using prompt learning},
+  title={BAPLe: Backdoor Attacks on Medical Foundational Models using Prompt Learning},
   author={Hanif, Asif and Shamshad, Fahad and Awais, Muhammad and Naseer, Muzammal and Khan, Fahad Shahbaz and Nandakumar, Karthik and Khan, Salman and Anwer, Rao},
   booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
   pages={443--453},
@@ -55,13 +55,15 @@
   organization={Springer},
   preview={miccai24.png},
   pdf={https://papers.miccai.org/miccai-2024/paper/3117_paper.pdf},
-  code={https://github.com/asif-hanif/baple}
-}
+  html={https://asif-hanif.github.io/baple/},
+  code={https://github.com/asif-hanif/baple},
+  selected = {true},
+  abstract = {Medical foundation models are gaining prominence in the medical community for their ability to derive general representations from extensive collections of medical image-text pairs. Recent research indicates that these models are susceptible to backdoor attacks, which allow them to classify clean images accurately but fail when specific triggers are introduced. However, traditional backdoor attacks necessitate a considerable amount of additional data to maliciously pre-train a model. This requirement is often impractical in medical imaging applications due to the usual scarcity of data. Inspired by the latest developments in learnable prompts, this work introduces a method to embed a backdoor into the medical foundation model during the prompt learning phase. By incorporating learnable prompts within the text encoder and introducing imperceptible learnable noise trigger to the input images, we exploit the full capabilities of the medical foundation models (Med-FM). Our method, BAPLe, requires only a minimal subset of data to adjust the noise trigger and the text prompts for downstream tasks, enabling the creation of an effective backdoor attack. Through extensive experiments with four medical foundation models, each pre-trained on different modalities and evaluated across six downstream datasets, we demonstrate the efficacy of our approach. BAPLe achieves a high backdoor success rate across all models and datasets, outperforming the baseline backdoor attack methods. Our work highlights the vulnerability of Med-FMs towards backdoor attacks and strives to promote the safe adoption of Med-FMs before their deployment in real-world applications. We believe that our work will help the medical community understand the potential risks associated with deploying Med-FMs and encourage the development of robust and secure models.}}
 
 @article{Awais.NeurIPS22,
   abbr     = {NeurIPS},
   title    = {ZooD: Exploiting model zoo for out-of-distribution generalization},
-  author   = {Qishi, Dong* and Awais, Muhammad and * and Fengwei Zhou and Chuanlong Xie and Tianyang Hu and Yongxin Yang and Sung-Ho, Bae and Zhenguo Li},
+  author   = {Qishi, Dong* and Awais, Muhammad* and Fengwei Zhou and Chuanlong Xie and Tianyang Hu and Yongxin Yang and Sung-Ho, Bae and Zhenguo Li},
   journal  = {Conference on Neural Information Processing Systems (NeurIPS)},
   year     = {2022},
   month    = {September},
@@ -77,12 +79,13 @@
   year    = {2024},
   journal = {IEEE/CVF Winter Conference on Applications of Computer Vision},
   preview={agrogpt25.png}
+  
 }
 
 @article{Awais.NeurIPS,
   abbr={NeurIPS},
   title={MixACM: Mixup-Based Robustness Transfer via Distillation of Activated Channel Maps},
-  author={Awais, Muhammad and Fengwei, Zhou and Chuanlong, Xie and Jiawei, Li and Sung-Ho, Bae and Zhenguo, Li},
+  author={Awais, Muhammad* and Fengwei, Zhou* and Chuanlong, Xie* and Jiawei, Li and Sung-Ho, Bae and Zhenguo, Li},
   journal={Conference on Neural Information Processing Systems (NeurIPS)},
   abstract={Deep neural networks are susceptible to adversarially crafted, small and imperceptible changes in the natural inputs. The most effective defense mechanism against these examples is adversarial training which constructs adversarial examples during training by iterative maximization of loss. The model is then trained to minimize the loss on these constructed examples. This min-max optimization requires more data, larger capacity models, and additional computing resources. It also degrades the standard generalization performance of a model. Can we achieve robustness more efficiently? In this work, we explore this question from the perspective of knowledge transfer. First, we theoretically show the transferability of robustness from an adversarially trained teacher model to a student model with the help of mixup augmentation. Second, we propose a novel robustness transfer method called Mixup-Based Activated Channel Maps (MixACM) Transfer. MixACM transfers robustness from a robust teacher to a student by matching activated channel maps generated without expensive adversarial perturbations. Finally, extensive experiments on multiple datasets and different learning scenarios show our method can transfer robustness while also improving generalization on natural images.},
   year={2021},

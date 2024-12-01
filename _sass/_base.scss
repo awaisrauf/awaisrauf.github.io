@@ -87,7 +87,7 @@ blockquote {
 }
 
 .post-description {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-size: 0.875rem;
   a {
     color: inherit;
@@ -205,11 +205,18 @@ blockquote {
 .news table td {
   font-size: 1rem;
   color: var(--global-text-color);
+  margin: 0.3rem; 
+  padding: 0.3rem; 
 }
 
 .news table th {
   color: var(--global-text-color);
+  margin: 0.3rem; 
+  padding: 0.3rem; 
 }
+
+
+
 
 // Social (bottom)
 
@@ -378,7 +385,7 @@ footer.sticky-bottom {
 // Publications
 
 .publications {
-  margin-top: 2rem;
+  margin-top: 0rem;
   h1 {
     color: var(--global-theme-color);
     font-size: 2rem;

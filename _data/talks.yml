@@ -1,28 +1,25 @@
-- title: Talk at xyz
+- title: Vision-Language Foundational Models
   where: MBZUAI
   link: "https://docs.google.com/presentation/d/e/2PACX-1vTEhjn_Zw-MwjuXOt8xcSzgT4cgvX0e9YbqRArU2EJM6QauCX5vuneiLi55FIrbfjaqRL_BVTBqU5ok/embed?start=false&loop=false&delayms=3000"
-  text: "These are slides for a guest lecture on foundational vision-language
+  text: Slides for a guest lecture on foundational vision-language I delivered at MBZUAI. The talk covers core concepts in the evolution of vision-language models by explaining eight different large vision-language models.
   rest_text: models delivered at [MBZ University of Artificial Intelligence](https://mbzuai.ac.ae/) in **September 2023**. I covered core concepts in the evolution of vision-language models by explaining eight different large vision-language models."
 
-- title: Talk at xyz
-  where: MBZUAI
-  link: "https://docs.google.com/presentation/d/e/2PACX-1vTEwA7Y_1HD5rKIracsC519fmAewX0Z17Cv-UJ9okKEI3ZZcD5qGRAMqjVwRSA1Hy3Zy255ZSzxIG7M/embed?start=false&loop=false&delayms=3000"
-  text: "He published 2 papers with us at MBZUAI, now a Ph.D. student at the Johns Hopkins."
-
-
-- title: Talk at xyz
-  where: MBZUAI
-  link: "https://docs.google.com/presentation/d/e/2PACX-1vQ3fRPsffOn9QWqTNH12XE9TbpVRMDlvLPLqf3wuA8O_NKna97u3Gpip7tXnAaXWg/embed?start=false&loop=false&delayms=3000"
-  text: "He published 2 papers with us at MBZUAI, now a Ph.D. student at the Johns Hopkins."
-
-
-- title: Talk at xyz
+- title: Efficient 3D-aware Facial Image Editing
   where: MBZUAI
   link: "https://docs.google.com/presentation/d/e/2PACX-1vRG0ODD7w0F8q5CcoDqNCsAVJQT01VipxrOLjFu9TVojI9RoskRCKxLhIQxarRf71NWsqknHLluvTyW/embed?start=false&loop=false&delayms=3000"
-  text: "He published 2 papers with us at MBZUAI, now a Ph.D. student at the Johns Hopkins."
+  text: Slides for a talk on facial image editing with 3D-aware models, delivered at MBZUAI. The talk covers our proposed method for efficient 3D-aware facial image editing models accepted at ECCV 2024.
 
+- title: MixACM - Efficient Robustness Transfer
+  where: NeurIPS
+  link: "https://docs.google.com/presentation/d/e/2PACX-1vQ3fRPsffOn9QWqTNH12XE9TbpVRMDlvLPLqf3wuA8O_NKna97u3Gpip7tXnAaXWg/embed?start=false&loop=false&delayms=3000"
+  text: "Slides for a talk on our paper, delivered at NeurIPS. The talk covers our proposed method for efficient robustness transfer."
 
-- title: Talk at xyz
+- title: Efficient Cross-task Robustness Transfer
+  where: SonyAI
+  link: "https://docs.google.com/presentation/d/e/2PACX-1vT1h30uTd2n4zgvdDMet-oH7vultN95H9S-EQALeWRihHs-yOoXR4t69ZrToeYamNppuLmTpHrgWP8t/embed?start=false&loop=false&delayms=3000"
+  text: "Slides for my talk at SonyAI. The talk covers our proposed method for efficient cross-task robustness transfer."
+
+- title: Election Prediction with Rigging
   where: MBZUAI
   link: "https://docs.google.com/presentation/d/e/2PACX-1vTEwA7Y_1HD5rKIracsC519fmAewX0Z17Cv-UJ9okKEI3ZZcD5qGRAMqjVwRSA1Hy3Zy255ZSzxIG7M/embed?start=false&loop=false&delayms=3000"
-  text: "He published 2 papers with us at MBZUAI, now a Ph.D. student at the Johns Hopkins."
+  text: "Slides for my talk about our winner solution for election prediction."

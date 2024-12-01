@@ -1,25 +1,28 @@
 TPAMI:
-  url: "https://example.com"
-  name: "Venue One"
+  url: "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34"
+  name: "IEEE Transactions on Pattern Analysis and Machine Intelligence"
 arXiv:
-  url: "https://anotherexample.com"
-  name: "Venue Two"
+  url: "http://arxiv.org"
+  name: "arXiv.org e-Print archive"
 NeurIPS:
-  url: "https://anotherexample.com"
-  name: "Venue Two"
+  url: "https://neurips.cc"
+  name: "Conference on Neural Information Processing Systems"
 ICCV:
-  url: "https://anotherexample.com"
-  name: "Venue Two"
+  url: "https://ieeexplore.ieee.org/xpl/conhome/1000149/all-proceedings"
+  name: "IEEE/CVF International Conference on Computer Vision"
 ECCV:
-  url: "https://anotherexample.com"
-  name: "Venue Two"
+  url: "https://eccv2024.ecva.net"
+  name: European Conference on Computer Vision"
 WACV:
-  url: "https://anotherexample.com"
-  name: "Venue Two"
+  url: "https://wacv2025.thecvf.com"
+  name: "IEEE/CVF Winter Conference on Applications of Computer Vision"
 TNNLS:
-  url: "https://anotherexample.com"
-  name: "Venue Two"
+  url: "https://cis.ieee.org/publications/t-neural-networks-and-learning-systems"
+  name: "IEEE Transactions on Neural Networks and Learning Systems"
 MICCAI:
-  url: "https://anotherexample.com"
-  name: "Venue Two"
+  url: "https://miccai.org"
+  name: "INTERNATIONAL CONFERENCE ON MEDICAL IMAGE COMPUTING AND COMPUTER ASSISTED INTERVENTION"
+ICASSP: 
+  url: "https://2024.ieeeicassp.org"
+  name: "IEEE International Conference on Acoustics, Speech and Signal Processing"
 

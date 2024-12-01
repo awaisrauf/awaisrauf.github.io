@@ -151,7 +151,7 @@ github: [metadata]
 scholar:
 
   last_name: Awais
-  first_name: [Muhammad]
+  first_name: [Muhammad, Muhammad*]
 
   style: apa
   locale: en

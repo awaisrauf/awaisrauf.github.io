@@ -61,10 +61,7 @@ I am a postdoc research associate at DERI, Queen Marry University of London. I h
         </div>
       <div class="company">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW-zl6llLzUFvqZSCz-lFtmypVHGfg9p0s8w&s" alt="Company 4 Logo" class="logo">
-            <!-- <div class="company-text">Company 4<br>Job Title: Consultant<br>Years: 2022-Present</div> -->
         </div>
-        <!-- <br> -->
-        <!-- <br> -->
     </div>
 
 <!-- <ul>
@@ -94,6 +91,6 @@ My research focuses on robust and safe AI systems, multi-modal learning, and the
  <!-- Details of my researcher is available here. I regularly contribute as a reviewer for top conferences such as NeurIPS, CVPR, ICLR, ICCV, and AISTATS. -->
  <!-- MICCAI ([#4 in Med. Imaging](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=med_radiologymedicalimaging)), COLING ([#5 in Comp. Linguistics](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_computationallinguistics)), and WACV ([#9 in CV](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)). Details of my researcher is available here.   -->
 
- Additionally, I have won a [📊 national-level ml competition](https://awaisrauf.github.io/election_prediction), received a ✈️ travel grant to attend [AustMS](https://sites.google.com/view/2022-workshop-bridgingmathstcs), and secured [🖥 NVIDIA's GPU grant](https://developer.nvidia.com/academic_gpu_seeding) for research.
+ Additionally, I have won a [national-level ml competition](https://propakistani.pk/2018/08/01/first-ever-election-prediction-contest-in-pakistan-concludes/), received a travel grant to attend [AustMS](https://sites.google.com/view/2022-workshop-bridgingmathstcs), and secured [NVIDIA's GPU grant](https://developer.nvidia.com/academic_gpu_seeding) for research.
 
 I enjoy [📖 reading](https://www.goodreads.com/review/list/90419452-awais?page=1&per_page=100&print=true&ref=nav_mybooks&shelf=read&utf8), [🏛 traveling](), 🧑‍💻 coding and 👷🏼‍♂️ building stuff.

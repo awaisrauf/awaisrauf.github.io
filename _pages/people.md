@@ -1,8 +1,8 @@
 ---
 layout: people
 permalink: /people/
-title: 👥 people
-importance: 
-description:
-nav: false
+title: 👥people
+importance: 3
+description: 
+nav: true
 ---

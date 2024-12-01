@@ -3,7 +3,7 @@ layout: talks
 title: 🎙️talks
 permalink: /talks
 category: teaching
-nav: false
+importance: 1
+nav: true
 ---
-
-This is complete list of my talks.
+A selection of talks I have given at various times.

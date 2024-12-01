@@ -4,11 +4,11 @@ layout: default
 <style>
     
     .item-list {
-        list-style-type: disc; /* Default bullet points */
-        padding-left: 20px; /* Space from the left edge */
+        list-style-type: disc; 
+        padding-left: 5px;
     }
     .item-list li {
-        margin-bottom: 10px; /* Space between items */
+        margin-bottom: 5px; /* Space between items */
     }
     .person-circle {
         width: 140px;
@@ -22,17 +22,20 @@ layout: default
         width: 100%;
         height: 100%;
         object-fit: cover;
+        text-align: center;
     }
 
     .person-text {
-        text-align: center;
         margin-top: 5px;
         font-size: 12px;
-        text-align: left;
-    }
+        text-align: left; 
+        hyphens: auto; 
+        word-break: break-word;
+        overflow-wrap: break-word; 
+    }   
 
     .person-container {
-        margin: 10px 0;
+        margin: 0px 0;
     }
 
     .person-link {
@@ -75,8 +78,14 @@ layout: default
         </ul>
     </div> -->
     <p>
-            I am fourtunate that I get to work with amazing people: Dr. Salman, Dr. Fahad, Dr. Rao and Dr. Muzammal at MBZUAI. <a href="https://sites.google.com/view/lingjuan-lyu/home" class="muted-link"> Dr. Lingjuan </a> and <a href="https://weiming.me" class="muted-link"> Dr. Weiming </a> at Sony AI, <a href="https://scholar.google.com.hk/citations?user=1M00Yg8AAAAJ&hl=zh-TW" class="muted-link"> Dr. Fengwei</a>, <a href="https://scholar.google.com/citations?user=_fgE3u8AAAAJ&hl=en" class="muted-link"> Dr. Chuanlong</a>, <a href="https://scholar.google.com/citations?user=XboZC1AAAAAJ&hl=en" class="muted-link"> Dr. Zhenguo</a>, and <a href="https://scholar.google.com.hk/citations?user=aXdjxb4AAAAJ&hl=en" class="muted-link"> Prof. Luo</a> at Huawei, <a href="https://scholar.google.co.kr/citations?user=EULut5oAAAAJ&hl=ko" class="muted-link"> Prof. Sung-Ho</a> for Ph.D. supervision, and <a href="https://itu.edu.pk/faculty-itu/dr-ali-ahmed/" class="muted-link"> Dr. Ali </a> and <a href="http://usamabinsikandar.weebly.com/teaching.html" class="muted-link"> Dr. Usama </a> at ITU.
-
+       I am fortunate to have had the opportunity to work with incredible supervisors, collaborators, students, and colleagues. Below is a non-exhaustive list.
+    <ul>
+        <li>At MBZUAI:  Dr. Fahad, Dr. Rao, Dr. Salman Khan, Dr. Muzzamal,and Dr. Hisham.</li>
+        <li>At Sony AI: <a href="https://sites.google.com/view/lingjuan-lyu/home">Dr. Lingjuan</a> and <a href="https://weiming.me">Dr. Weiming</a></li>
+        <li>At Noah's Ark Lab, Huawei: Dr. Fengwei, <a href="https://scholar.google.com/citations?user=_fgE3u8AAAAJ&hl=en">Dr. Chuanlong</a>, <a href="https://scholar.google.com/citations?user=XboZC1AAAAAJ&hl=en">Dr. Zhenguo</a>, and <a href="https://scholar.google.com.hk/citations?user=aXdjxb4AAAAJ&hl=en">Prof. Luo</a></li>
+        <li>At KHU: Salman, Muqeet, and <a href="https://scholar.google.co.kr/citations?user=EULut5oAAAAJ&hl=ko">Prof. Sung-Ho</a></li>
+        <li>At ITU: <a href="https://fahadshamshad.github.io">Fahad</a>, <a href="https://www.linkedin.com/in/axium/">Asim</a>, <a href="https://itu.edu.pk/faculty-itu/dr-ali-ahmed/">Dr. Ali</a>, and <a href="http://usamabinsikandar.weebly.com/teaching.html">Dr. Usama</a></li>
+    </ul> 
     </p>
 
     <h4>Students</h4>
@@ -90,7 +99,7 @@ layout: default
                 </div>
                 <div>
                     <a class="person-link" href="{{ person.link }}">{{ person.name }}</a>
-                    <p class="person-text">  {{ person.text }} </p>
+                    <p class="person-text"> {{ person.text }} </p>
                     
                 </div>
             </div>

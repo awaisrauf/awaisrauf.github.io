@@ -153,7 +153,7 @@ blockquote {
   }
 }
 .post-description {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-size: 0.875rem;
 }
 .post-description a {
@@ -256,10 +256,14 @@ blockquote {
 .news table td {
   font-size: 1rem;
   color: var(--global-text-color);
+  margin: 0.3rem;
+  padding: 0.3rem;
 }
 
 .news table th {
   color: var(--global-text-color);
+  margin: 0.3rem;
+  padding: 0.3rem;
 }
 
 .social {
@@ -391,7 +395,7 @@ footer.sticky-bottom {
 }
 
 .publications {
-  margin-top: 2rem;
+  margin-top: 0rem;
 }
 .publications h1 {
   color: var(--global-theme-color);

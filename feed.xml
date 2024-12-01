@@ -1,2 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-09-09T17:07:52+00:00</updated><id>/feed.xml</id><title type="html">Awais</title><subtitle>Personal website. 
-</subtitle></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://awaisrauf.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://awaisrauf.github.io/" rel="alternate" type="text/html" /><updated>2024-12-01T16:00:25+00:00</updated><id>https://awaisrauf.github.io/feed.xml</id><title type="html">Awais Rauf</title><subtitle>Personal website. 
+</subtitle><entry><title type="html">a post with twitter</title><link href="https://awaisrauf.github.io/blog/2020/tweet/" rel="alternate" type="text/html" title="a post with twitter" /><published>2020-09-28T15:12:00+00:00</published><updated>2020-09-28T15:12:00+00:00</updated><id>https://awaisrauf.github.io/blog/2020/tweet</id><content type="html" xml:base="https://awaisrauf.github.io/blog/2020/tweet/"><![CDATA[<p>A sample blog page that demonstrates the inclusion of Tweets/Timelines/etc.</p>
+
+<h1 id="tweet">Tweet</h1>
+
+<p>this</p>]]></content><author><name></name></author><category term="sample-posts" /><category term="external-services" /><category term="formatting" /><summary type="html"><![CDATA[an example of a blog post with twitter]]></summary></entry></feed>

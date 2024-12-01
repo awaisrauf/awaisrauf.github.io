@@ -69,6 +69,8 @@ After building locally, push all the changes. The site will be deployed frm `gh-
   }
 ```
 
+7. Added `_papers.scss` for styling of `bib.html` files.
+
 ## Theme Features
 
 ### Publications

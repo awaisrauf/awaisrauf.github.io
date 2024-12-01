@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: //sitemap.xml
+Sitemap: https://awaisrauf.github.io//sitemap.xml

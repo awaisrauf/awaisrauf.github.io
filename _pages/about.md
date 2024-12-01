@@ -16,48 +16,54 @@ social: false  # includes social icons at the bottom of the page
 ---
 
 <style>
-  /*Style for muted links*/
-  /* .muted-link {
-    color: #888;
-    text-decoration: none; 
-  }
-  .muted-link:hover {
-    color: #555;
-  } */
-        .logos-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .logo {
-            width: 100%;
-            max-width: 80px;
-            height: auto;
-            transition: all 0.3s ease-in-out;
-            
-        }
-        /* .logo-text {
-            font-size: px;
-            color: #555;
-            margin-top: 5px;
-        } */
+.logos-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.logo {
+    width: 100%;
+    max-width: 40px;
+    height: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (min-width: 540px) {
+    .logo {
+        max-width: 70px; 
+    }
+}
+
+@media (min-width: 900px) {
+    .logo {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logos-container {
+        gap: 10px;
+    }
+    .logo {
+        max-width: 45px;
+    }
+}
 </style>
 
 I am a postdoc research associate at DERI, Queen Marry University of London. I have been affiliated with, 
   <div class="logos-container">
           <div class="company">
-            <img src="assets/img/mbzuai.png" alt="Company 3 Logo" class="logo">
-            <!-- <div class="company-text">RA@MBZUAI<br> among <a href="https://csrankings.org/#/index?ai&vision&mlmining&nlp&world">top 15</a><br>UAE</div> -->
+            <img src="assets/img/mbzuai.png" alt="" class="logo">
         </div>
         <div class="company">
-            <img src="assets/img/sonyai.jpg" alt="Company 1 Logo" class="logo">
-            <!-- <div class="company-text">RA at Sony AI <br> Japan</div> -->
+            <img src="assets/img/sonyai.jpg" alt="" class="logo">
         </div>
         <div class="company">
-            <img src="assets/img/huawei.png" alt="Company 2 Logo" class="logo">
-            <!-- <div class="company-text">RA@Huawei's <br> Noah Ark Lab <br> Hong Kong</div> -->
+            <img src="assets/img/huawei.png" alt="" class="logo">
         </div>
       <div class="company">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW-zl6llLzUFvqZSCz-lFtmypVHGfg9p0s8w&s" alt="Company 4 Logo" class="logo">

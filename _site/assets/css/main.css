@@ -256,14 +256,16 @@ blockquote {
 .news table td {
   font-size: 1rem;
   color: var(--global-text-color);
-  margin: 0.1rem;
-  padding: 0.1rem;
+  margin: 0.2rem;
+  padding: 0.2rem;
 }
 
 .news table th {
   color: var(--global-text-color);
-  margin: 0.1rem;
-  padding: 0.1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 0.2rem;
+  padding: 0.2rem;
 }
 
 .social {

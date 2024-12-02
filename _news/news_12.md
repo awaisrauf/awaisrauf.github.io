@@ -6,6 +6,6 @@ inline: true
 selected: false
 ---
 
-One paper got accepted in Conference on Neural Information Processing Systems - [NeurIPS, 2021](https://nips.cc/). 
+One paper got accepted in Conference on Neural Information Processing Systems - [NeurIPS, 2021](https://nips.cc/).
 
 

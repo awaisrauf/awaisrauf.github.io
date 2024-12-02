@@ -6,4 +6,4 @@ inline: true
 selected: true
 ---
 
-Got travel funding attend [AustMS Workshop](https://sites.google.com/view/2022-workshop-bridgingmathstcs) on Bridging Maths and Computer Science.
+Got travel funding to attend [AustMS Workshop](https://sites.google.com/view/2022-workshop-bridgingmathstcs) on Bridging Maths and Computer Science.

@@ -1,53 +1,145 @@
 cities:
-  - city: Paris
-    flag: 🇫🇷
-    circle_image: /assets/img/cities/abudhabi.jpeg
-    url: /paris/
-  - city: Amsterdam
-    flag: 🇳🇱
-    circle_image: /assets/img/cities/dubai.jpeg
-    url: /amsterdam/
-  - city: Berlin
-    flag: 🇩🇪
-    circle_image: /assets/img/cities/tokyo.jpeg
-    url: /berlin/
-  - city: Berlin
-    flag: 🇩🇪
-    circle_image: /assets/img/cities/boston.jpeg
-    url: /berlin/
-  - city: Berlin
-    flag: 🇩🇪
-    circle_image: /assets/img/cities/nyc.jpeg
-    url: /berlin/
+  - city: Marrakesh
+    flag: 🇲🇪
+    circle_image: /assets/img/cities/marrakesh.jpeg
+    url: /travel/marrakesh/
+  - city: Baku
+    flag: 🇦🇿
+    circle_image: /assets/img/cities/baku.jpeg
+    url: /travel/baku/
+  - city: Kutaisi
+    flag: 🇬🇪
+    circle_image: /assets/img/cities/kutaisi.jpeg
+    url: /travel/kutaisi/
+  - city: Batumi
+    flag: 🇬🇪
+    circle_image: /assets/img/cities/batumi.jpeg
+    url: /travel/batumi/
+  - city: Tbilisi
+    flag: 🇬🇪
+    circle_image: /assets/img/cities/tbilisi.jpeg
+    url: /travel/tbilisi/
+  - city: Bukhara
+    flag: 🇺🇿
+    circle_image: /assets/img/cities/bukhara.jpeg
+    url: /travel/bukhara/
+  - city: Samarkand
+    flag: 🇺🇿
+    circle_image: /assets/img/cities/samarkand.jpeg
+    url: /travel/samarkand/
+  - city: Tashkent
+    flag: 🇺🇿
+    circle_image: /assets/img/cities/tashkent.jpeg
+    url: /travel/tashkent/
+  - city: Aqaba
+    flag: 🇯🇴
+    circle_image: /assets/img/cities/aqaba.jpeg
+    url: /travel/aqaba/
+  - city: Petra
+    flag: 🇯🇴
+    circle_image: /assets/img/cities/petra.jpeg
+    url: /travel/petra/
+  - city: Amman
+    flag: 🇯🇴
+    circle_image: /assets/img/cities/amman.jpeg
+    url: /travel/amman/
+  - city: Jerash
+    flag: 🇯🇴
+    circle_image: /assets/img/cities/jerash.jpeg
+    url: /travel/jerash/
+  - city: Madaba
+    flag: 🇯🇴
+    circle_image: /assets/img/cities/madaba.jpeg
+    url: /travel/madaba/
+  - city: Chicago
+    flag: 🇺🇸
+    circle_image: /assets/img/cities/chicago.jpeg
+    url: /travel/chicago/
+  - city: New Orleans
+    flag: 🇺🇸
+    circle_image: /assets/img/cities/neworleans.jpeg
+    url: /travel/neworleans/
+  - city: Manama
+    flag: 🇧🇭
+    circle_image: /assets/img/cities/manama.jpeg
+    url: /travel/manama/
+  - city: Manchester
+    flag: 🇬🇧
+    circle_image: /assets/img/cities/manchester.jpeg
+    url: /travel/manchester/
+  - city: London
+    flag: 🇬🇧
+    circle_image: /assets/img/cities/london.jpeg
+    url: /travel/london/
   - city: Osaka
-    flag: 🇩🇪
+    flag: 🇯🇵
     circle_image: /assets/img/cities/osaka.jpeg
-    url: /berlin/
+    url: /travel/osaka/
+  - city: Tokyo
+    flag: 🇯🇵
+    circle_image: /assets/img/cities/tokyo.jpeg
+    url: /travel/tokyo/
+  - city: Kyoto
+    flag: 🇯🇵
+    circle_image: /assets/img/cities/kyoto.jpeg
+    url: /travel/kyoto/
   - city: Washington
-    flag: 🇩🇪
+    flag: 🇺🇸
     circle_image: /assets/img/cities/washington.jpeg
-    url: /berlin/
-  - city: Washington
+    url: /travel/washington/
+  - city: New York
     flag: 🇩🇪
-    circle_image: /assets/img/cities/washington.jpeg
-    url: /berlin/
-  - city: Washington
-    flag: 🇩🇪
-    circle_image: /assets/img/cities/washington.jpeg
-    url: /berlin/
-  - city: Washington
-    flag: 🇩🇪
-    circle_image: /assets/img/cities/washington.jpeg
-    url: /berlin/
-  - city: Washington
-    flag: 🇩🇪
-    circle_image: /assets/img/cities/washington.jpeg
-    url: /berlin/
-  - city: Washington
-    flag: 🇩🇪
-    circle_image: /assets/img/cities/washington.jpeg
-    url: /berlin/
-  - city: Washington
-    flag: 🇩🇪
-    circle_image: /assets/img/cities/washington.jpeg
-    url: /berlin/
+    circle_image: /assets/img/cities/newyork.jpeg
+    url: /travel/newyork/
+  - city: Boston
+    flag: 🇺🇸
+    circle_image: /assets/img/cities/boston.jpeg
+    url: /travel/boston/
+  - city: Seoul
+    flag: 🇰🇷
+    circle_image: /assets/img/cities/seoul.jpeg
+    url: /travel/seoul/
+  - city: Incheon
+    flag: 🇰🇷
+    circle_image: /assets/img/cities/incheon.jpeg
+    url: /travel/incheon/
+  - city: Busan
+    flag: 🇰🇷
+    circle_image: /assets/img/cities/busan.jpeg
+    url: /travel/busan/
+  - city: Daegu
+    flag: 🇰🇷
+    circle_image: /assets/img/cities/daegu.jpeg
+    url: /travel/daegu/
+  - city: Suwon
+    flag: 🇰🇷
+    circle_image: /assets/img/cities/suwon.jpeg
+    url: /travel/suwon/
+  - city: Jeju
+    flag: 🇰🇷
+    circle_image: /assets/img/cities/jeju.jpeg
+    url: /travel/jeju/
+  - city: Daejon
+    flag: 🇰🇷
+    circle_image: /assets/img/cities/daejon.jpeg
+    url: /travel/daejon/
+  - city: Ulsan
+    flag: 🇰🇷
+    circle_image: /assets/img/cities/ulsan.jpeg
+    url: /travel/ulsan/
+  - city: Gyeongju
+    flag: 🇰🇷
+    circle_image: /assets/img/cities/gyeongju.jpeg
+    url: /travel/gyeongju/
+  - city: Hong Kong
+    flag: 🇭🇰
+    circle_image: /assets/img/cities/hongkong.jpeg
+    url: /travel/hongkong/
+  - city: Medinah
+    flag: 🇸🇦
+    circle_image: /assets/img/cities/medinah.jpeg
+    url: /travel/medinah/
+  - city: Chongqing
+    flag: 🇨🇳
+    circle_image: /assets/img/cities/chongqing.jpeg
+    url: /travel/chongqing/

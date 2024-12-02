@@ -1,13 +1,13 @@
 - title: Vision-Language Foundational Models
   where: MBZUAI
   link: "https://docs.google.com/presentation/d/e/2PACX-1vTEhjn_Zw-MwjuXOt8xcSzgT4cgvX0e9YbqRArU2EJM6QauCX5vuneiLi55FIrbfjaqRL_BVTBqU5ok/embed?start=false&loop=false&delayms=3000"
-  text: Slides for a guest lecture on foundational vision-language I delivered at MBZUAI. The talk covers core concepts in the evolution of vision-language models by explaining eight different large vision-language models.
+  text: Slides for a guest lecture on foundational vision-language I delivered at [MBZUAI](https://mbzuai.ac.ae/). The talk covers core concepts in the evolution of vision-language models by explaining eight different large vision-language models. For more details, you may read our [TPAMI paper](https://arxiv.org/pdf/2307.13721).
   rest_text: models delivered at [MBZ University of Artificial Intelligence](https://mbzuai.ac.ae/) in **September 2023**. I covered core concepts in the evolution of vision-language models by explaining eight different large vision-language models."
 
 - title: Efficient 3D-aware Facial Image Editing
   where: MBZUAI
   link: "https://docs.google.com/presentation/d/e/2PACX-1vRG0ODD7w0F8q5CcoDqNCsAVJQT01VipxrOLjFu9TVojI9RoskRCKxLhIQxarRf71NWsqknHLluvTyW/embed?start=false&loop=false&delayms=3000"
-  text: Slides for a talk on facial image editing with 3D-aware models, delivered at MBZUAI. The talk covers our proposed method for efficient 3D-aware facial image editing models accepted at ECCV 2024.
+  text: Slides for a talk on facial image editing with 3D-aware models, delivered at MBZUAI. The talk covers our proposed method for efficient 3D-aware facial image editing models accepted at ECCV 2024. For more details you may read our [paper](https://arxiv.org/pdf/2406.04413).
 
 - title: MixACM - Efficient Robustness Transfer
   where: NeurIPS

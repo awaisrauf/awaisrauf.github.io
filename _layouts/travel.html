@@ -53,14 +53,20 @@ layout: default
 
   {{ content }}
 
+  
   <div class="circle-container">
+    {% assign counter = 0 %}
     {% for city in site.data.cities.cities %}
       <div class="circle">
         <a href="{{ city.url }}">
+        <!-- <img src="/assets/img/cities/osaka.jpeg" alt="Placeholder"> -->
           <img src="{{ city.circle_image }}" alt="{{ city.city }}">
           <div class="circle-text">{{ city.city }} {{ city.flag }}</div>
+          {% assign counter = counter | plus: 1 %}
         </a>
       </div>
     {% endfor %}
+    
   </div>
+  Cities Visited: {{ counter }} 
 </div>

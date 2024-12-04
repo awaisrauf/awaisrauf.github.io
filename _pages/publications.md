@@ -14,7 +14,7 @@ My research has been published in leading AI and computer vision venues, includi
 Moreover, I regularly contribute as a reviewer in top AI venues, including NeurIPS, CVPR, ICLR, ICCV, ECCV, AISTATS, WACV, BMVC, and CoLLAs. I have served on the program committee for various workshops, such as New in ML at NeurIP 2023; Socially Responsible Machine Learning at ICLR 2022; The Art of Robustness: Devil and Angel in Adversarial Machine at CVPR 2022; Socially Responsible Machine Learning at ICML 2021; The 2nd Workshop on Adversarial Robustness In the Real World at ICCV 2021; Workshop on Security and Safety in Machine Learning Systems at ICLR 2021; Adversarial Robustness in the Real World (AROW) at ECCV 2020.
 </div>
 
-<h2> selected publications </h2>
+<h2> Selected Publications </h2>
 
 {% bibliography -f papers  %}
 

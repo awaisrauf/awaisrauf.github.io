@@ -54,7 +54,7 @@ social: false  # includes social icons at the bottom of the page
 }
 </style>
 
-I am a postdoc research associate at DERI, Queen Marry University of London. I have been affiliated with, 
+I am a postdoc research associate at DERI, Queen Mary University of London. I have been affiliated with, 
   <div class="logos-container">
           <div class="company">
             <img src="assets/img/mbzuai.png" alt="" class="logo">
@@ -82,7 +82,7 @@ I am a postdoc research associate at DERI, Queen Marry University of London. I h
   <!-- <li> Teaching Assistant for graduate and undergraduate courses, including <a href="https://awaisrauf.github.io/ee512/" class="muted-link">machine learning</a> -->
 <!-- </ul> -->
 
-My research focuses on robust and safe AI systems, multi-modal learning, and the application of AI in non-CS domains. I have published my research in leading AI and computer vision venues, such as NeurIPS ([#1 in AI](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_artificialintelligence)), ICCV ([#2 in CV](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)), ECCV ([#3 in CV](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)), TPAMI ([IF=20.8](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)), TNNLS ([IF=10.4](https://cis.ieee.org/publications/t-neural-networks-and-learning-systems)).
+My research focuses on robust and safe intelligent systems, multi-modal learning, and the broader applications of AI with societal impact. I have published my research in leading AI and computer vision venues, such as NeurIPS ([#1 in AI](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_artificialintelligence)), ICCV ([#2 in CV](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)), ECCV ([#3 in CV](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)), TPAMI ([IF=20.8](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)), TNNLS ([IF=10.4](https://cis.ieee.org/publications/t-neural-networks-and-learning-systems)).
 
 
 

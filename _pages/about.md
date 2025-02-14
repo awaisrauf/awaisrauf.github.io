@@ -99,4 +99,4 @@ My research focuses on robust intelligent systems, cross-domain model adaptation
 
 Additionally, I have won a [national-level ml competition](https://propakistani.pk/2018/08/01/first-ever-election-prediction-contest-in-pakistan-concludes/), received a travel grant to attend [AustMS](https://sites.google.com/view/2022-workshop-bridgingmathstcs), and secured [NVIDIA's GPU grant](https://developer.nvidia.com/academic_gpu_seeding) for research.
 
-I enjoy [📖 reading](https://www.goodreads.com/review/list/90419452-awais?page=1&per_page=100&print=true&ref=nav_mybooks&shelf=read&utf8), [🏛 traveling](), 🧑‍💻 coding and 👷🏼‍♂️ building stuff.
+I enjoy [📖 reading](https://www.goodreads.com/review/list/90419452-awais?page=1&per_page=100&print=true&ref=nav_mybooks&shelf=read&utf8), [🏛 traveling](https://awaisrauf.github.io/travel), 🧑‍💻 coding and 👷🏼‍♂️ building stuff.

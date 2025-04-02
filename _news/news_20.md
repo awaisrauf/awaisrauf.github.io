@@ -6,7 +6,9 @@ inline: false
 selected: true
 ---
 
-I am hosting Dr. Uzair Javaid, Ph.D., CEO of Betterdata, for an insightful session titled "From Limited Access to Limitless Possibility: The Case for Synthetic Data" at [Digital Environment Research Institute (DERI)](https://www.qmul.ac.uk/deri), Queen Mary University of London. This talk is open to everyone in London. If you want to join us, please register using this [registeration form](https://docs.google.com/forms/d/e/1FAIpQLSf9hh6HkxQVf8U9lyM6i_nFK3MHnvnb3kjQdEBtcqoDY3yJlQ/viewform?usp=dialog).
+I am hosting Dr. Uzair Javaid, Ph.D., CEO of Betterdata, for an insightful session titled "From Limited Access to Limitless Possibility: The Case for Synthetic Data" at [Digital Environment Research Institute (DERI)](https://www.qmul.ac.uk/deri), Queen Mary University of London. This talk is open to everyone in London. If you want to join us, please register using this [registeration form](https://forms.gle/choGp9N8hqUhk5dUA).
 
+<div>
+  <img src="assets/img/news/betterData.jpeg">
+</div>
 
-![](./assets/img/news/betterData.jpeg)

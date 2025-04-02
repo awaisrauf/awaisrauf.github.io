@@ -1,13 +1,10 @@
 ---
 layout: post
-title: 
-date: 2025-04-01 16:11:00-0400
+title: I am hosting Dr. Uzair Javaid, Ph.D., CEO of Betterdata, for an insightful session on Synthetic Data at QMUL.
+date: 2025-03-30 16:11:00-0400
 inline: false
 selected: true
 ---
-
-I am hosting Dr. Uzair Javaid, Ph.D., CEO of Betterdata, for an insightful session on Synthetic Data at QMUL.
-
 
 I am hosting Dr. Uzair Javaid, Ph.D., CEO of Betterdata, for an insightful session titled "From Limited Access to Limitless Possibility: The Case for Synthetic Data" at Digital Environment Research Institute (DERI), Queen Mary University of London. This talk is open to everyone in London. If you want to join us, please register here: https://lnkd.in/daGarJKt.
 

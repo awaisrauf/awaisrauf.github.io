@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I am hosting Dr. Uzair Javaid, Ph.D., CEO of Betterdata, for an insightful session on Synthetic Data at QMUL.
+title: I am hosting Dr. Uzair Javaid, CEO of Betterdata, for an insightful session at QMUL.
 date: 2025-03-30 16:11:00-0400
 inline: false
 selected: true

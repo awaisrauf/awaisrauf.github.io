@@ -6,4 +6,4 @@ inline: true
 selected: true
 ---
 
-Five papers have been accepted at [TPAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)(IF>24), [WACV](https://wacv2025.thecvf.com/), [COLING](https://aclanthology.org/volumes/2025.coling-main/), and [ISBI](https://biomedicalimaging.org/2025/). Congratulations to the co-authors. 
+Five papers accepted to [TPAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)(IF>24), [WACV](https://wacv2025.thecvf.com/), [COLING](https://aclanthology.org/volumes/2025.coling-main/), and [ISBI](https://biomedicalimaging.org/2025/). Congratulations to the co-authors. 

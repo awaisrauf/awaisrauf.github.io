@@ -6,4 +6,4 @@ inline: true
 selected: true
 ---
 
-Successfully defended my Ph.D. thesis! Honored to receive the Outstanding Achievement Award and 2.5M KRW.
+Successfully defended my Ph.D. thesis and received the Outstanding Achievement Award with 2.5M KRW.

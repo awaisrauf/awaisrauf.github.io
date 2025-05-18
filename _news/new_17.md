@@ -6,5 +6,5 @@ inline: true
 selected: true
 ---
 
-Five papers accepted at TPAMI, ECCV, WACV, MICCAI, and ICASSP. Congratulations to the co-authors.
+Five papers accepted at ECCV, WACV, MICCAI, and ICASSP. Congratulations to the co-authors.
 

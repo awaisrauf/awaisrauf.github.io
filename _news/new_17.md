@@ -6,5 +6,5 @@ inline: true
 selected: true
 ---
 
-Four papers accepted at ECCV, MICCAI, ICASSP and SIVP. Congratulations to the co-authors.
+Four papers accepted to ECCV, MICCAI, ICASSP and SIVP. Congratulations to the co-authors.
 

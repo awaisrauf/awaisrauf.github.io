@@ -54,7 +54,7 @@ social: false  # includes social icons at the bottom of the page
 }
 </style>
 
-I am a postdoc research associate at DERI, Queen Mary University of London, and an R&D Advisor at BetterData, helping them develop tabular foundational models. I have been affiliated with, 
+I am assistant professor at Queen's University Belfast, United Kingdom. Previously, I have worked with [MbZUAI](mbzuai.ac.uk), [QMUL](qmul.ac.uk), [Sony AI](ai.sony) and [Huawei' Noah Ark Lab](https://huggingface.co/huawei-noah) and advised [BetterData](betterdata.ai).
   <div class="logos-container">
           <div class="company">
             <img src="assets/img/mbzuai.png" alt="" class="logo">

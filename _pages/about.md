@@ -54,7 +54,7 @@ social: false  # includes social icons at the bottom of the page
 }
 </style>
 
-I am an Assistant Professor at Queen’s University Belfast in the United Kingdom. Previously, I have worked with [MbZUAI](mbzuai.ac.uk), [QMUL](qmul.ac.uk), [Sony AI](ai.sony) and [Huawei's Noah Ark Lab](https://huggingface.co/huawei-noah), and served as an advisor to [BetterData](betterdata.ai).
+I am an Assistant Professor at Queen’s University Belfast in the United Kingdom. Previously, I have worked with [MbZUAI](https://mbzuai.ac.uk), [QMUL](https://qmul.ac.uk), [Sony AI](https://ai.sony) and [Huawei's Noah Ark Lab](https://huggingface.co/huawei-noah), and served as an advisor to [BetterData](https://betterdata.ai).
   <div class="logos-container">
           <div class="company">
             <img src="assets/img/mbzuai.png" alt="" class="logo">

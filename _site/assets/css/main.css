@@ -12,7 +12,7 @@
   --global-text-color-light: #828282;
   --global-theme-color: #0076df;
   --global-hover-color: #0076df;
-  --global-footer-bg-color: #424242;
+  --global-footer-bg-color: rgb(66.25, 66.25, 66.25);
   --global-footer-text-color: #e8e8e8;
   --global-footer-link-color: #ffffff;
   --global-distill-app-color: #828282;
@@ -27,14 +27,14 @@
 }
 
 html[data-theme=dark] {
-  --global-bg-color: #424242;
+  --global-bg-color: rgb(66.25, 66.25, 66.25);
   --global-code-bg-color: #2c3237;
   --global-text-color: #e8e8e8;
   --global-text-color-light: #e8e8e8;
   --global-theme-color: #2698BA;
   --global-hover-color: #2698BA;
   --global-footer-bg-color: #e8e8e8;
-  --global-footer-text-color: #424242;
+  --global-footer-text-color: rgb(66.25, 66.25, 66.25);
   --global-footer-link-color: #000000;
   --global-distill-app-color: #e8e8e8;
 }

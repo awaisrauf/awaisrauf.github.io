@@ -54,7 +54,7 @@ social: false  # includes social icons at the bottom of the page
 }
 </style>
 
-I am an Assistant Professor at Queen’s University Belfast in the United Kingdom. Previously, I have worked with [MbZUAI](https://mbzuai.ac.uk), [QMUL](https://qmul.ac.uk), [Sony AI](https://ai.sony) and [Huawei's Noah Ark Lab](https://huggingface.co/huawei-noah), and served as an advisor to [BetterData](https://betterdata.ai).
+I am an Assistant Professor at Queen’s University Belfast in the United Kingdom. Previously, I have worked with [MbZUAI](https://mbzuai.ac.ae), [QMUL](https://qmul.ac.uk), [Sony AI](https://ai.sony) and [Huawei's Noah Ark Lab](https://huggingface.co/huawei-noah), and served as an advisor to [BetterData](https://betterdata.ai).
   <div class="logos-container">
           <div class="company">
             <img src="assets/img/mbzuai.png" alt="" class="logo">
@@ -69,7 +69,6 @@ I am an Assistant Professor at Queen’s University Belfast in the United Kingdo
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW-zl6llLzUFvqZSCz-lFtmypVHGfg9p0s8w&s" alt="Company 4 Logo" class="logo">
         </div>
     </div>
-
 <!-- <ul>
  <li> RA at <a href="https://mbzuai.ac.ae/"> MBZUAI</a>, among <a href="https://csrankings.org/#/index?ai&vision&mlmining&nlp&world">top 15 AI research institutes</a></li>
   <li> RA at <a href="https://ai.sony/">Sony AI</a>, Japan
@@ -82,7 +81,10 @@ I am an Assistant Professor at Queen’s University Belfast in the United Kingdo
   <!-- <li> Teaching Assistant for graduate and undergraduate courses, including <a href="https://awaisrauf.github.io/ee512/" class="muted-link">machine learning</a> -->
 <!-- </ul> -->
 
+
 My research focuses on robust intelligent systems, cross-domain model adaptation, multi-modal foundational models, and the broader applications of AI with societal impact. I have published my research in leading AI and computer vision venues, such as NeurIPS ([#1 in AI](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_artificialintelligence)), ICCV ([#2 in CV](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)), ECCV ([#3 in CV](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)), TPAMI ([IF=20.8](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)), TNNLS ([IF=10.4](https://cis.ieee.org/publications/t-neural-networks-and-learning-systems)).
+
+I am teaching graduate level course, [AI Engineering](https://awaisrauf.com/ai_engineering_course/), at Queens this summer.
 
 
 

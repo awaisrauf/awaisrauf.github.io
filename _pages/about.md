@@ -84,7 +84,7 @@ I am an Assistant Professor at Queen’s University Belfast in the United Kingdo
 
 My research focuses on robust intelligent systems, cross-domain model adaptation, multi-modal foundational models, and the broader applications of AI with societal impact. I have published my research in leading AI and computer vision venues, such as NeurIPS ([#1 in AI](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_artificialintelligence)), ICCV ([#2 in CV](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)), ECCV ([#3 in CV](https://scholar.google.com.hk/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)), TPAMI ([IF=20.8](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)), TNNLS ([IF=10.4](https://cis.ieee.org/publications/t-neural-networks-and-learning-systems)).
 
-I am teaching graduate level course, [AI Engineering](https://awaisrauf.com/ai_engineering_course/), at Queens this summer.
+I am teaching graduate level course, [AI Engineering](https://awaisrauf.com/ecs8060/), at Queens this summer.
 
 
 

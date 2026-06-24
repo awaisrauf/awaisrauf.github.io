@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HPP: Hierarchical Programmatic Probing for Long Video Understanding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="Path to your teaser.png" />
+    <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+    <meta property="og:title" content="HPP: Hierarchical Programmatic Probing for Long Video Understanding" />
+    <meta property="og:description" content="Paper description." />
+
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']]
+            }
+        };
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="./assets/project_assets/hpp/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="columns is-centered is-multiline is-mobile">
+                <div class="column is-full has-text-centered py-5">
+                    <h1 class="title is-1">HPP: Hierarchical Programmatic Probing for Long Video Understanding by Decoupling Perception and Reasoning</h1>
+                </div>
+                <div class="column is-9 has-text-centered">
+                    <address class="author"><a rel="author" href="https://awaisrauf.com">Awais Rauf</a><sup>1</sup></address>
+                    <address class="author"><a rel="author" href="#">Ahmed Hassan</a><sup>2</sup></address>
+                    <address class="author"><a rel="author" href="#">Greg Slabaugh</a><sup>3</sup></address>
+                    <br>
+                    <sup>1</sup> Queen's University Belfast &nbsp;&nbsp;
+                    <sup>2</sup> AMD &nbsp;&nbsp;
+                    <sup>3</sup> Queen Mary University of London
+                </div>
+
+                <div class="column is-9 has-text-centered pb-4 nav">
+                    <a href="#">[📗 Paper]</a>
+                    <a href="#">[👨‍💻 GitHub]</a>
+                    <a href="https://awaisrauf.com/hpp">[🌐 Project Page]</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- TEASER FIGURE GOES HERE -->
+
+    <section class="section">
+        <div class="container has-text-centered">
+            <h2 class="title is-2">🧵 Abstract</h2>
+            <p style="text-align: justify;">Understanding long videos requires finegrained perception and multi-step, higher-order reasoning over complex, long-range spatiotemporal dynamics. Vision-language models (VLMs) encode video frames into visual tokens and attempt to perform both perception and multi-step planning latently, within a single forward pass. This coupled formulation, however, is bottlenecked by the LLM’s limited capacity to discover and execute multi-step strategies in its latent representations. To address this bottleneck, we propose Hierarchical Programmatic Probing (HPP), a framework that decouples semantic perception from higher-order temporal reasoning by reformulating long video understanding as iterative, programmatic exploration of a hierarchically segmented video. Specifically, a coding-capable LLM plans and executes a multi-step strategy in an interactive coding environment, probing the video for information and invoking a VLM for localized perception on demand. To make probing tractable over long videos, we introduce three components: information-density-aware hierarchical segmentation, late-interaction semantic retrieval, and structured probing functions for coarse-to-fine temporal localization. We validate HPP on LongVideoBench, which requires both fine-grained perception and longrange relational reasoning, and show that decoupling the two via iterative programmatic probing yields substantial gains. Further results on EgoSchema, VideoMME, and MLVU demonstrate the effectiveness of our approach across diverse long-video benchmarks</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container my-4 has-text-centered">
+            <h2 class="title is-2">🧑‍🔧 Method</h2>
+            <div class="container has-text-centered">
+                <p class="cusom-p" style="text-align: justify;">
+        
+                </p>
+                <br>
+                <!-- METHOD FIGURE GOES HERE -->
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container my-4 has-text-centered">
+            <h2 class="title is-2">📊 Results</h2>
+            <div class="container has-text-centered">
+                <br>
+                <!-- RESULTS FIGURE GOES HERE -->
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <br>
+        <div class="container my-4 has-text-centered">
+            <h2 class="title is-2">Paper and Supplementary Material</h2>
+            <div class="columns is-mobile is-centered is-vcentered">
+                <div class="column has-text-right is-hidden-touch">
+                    <!-- PAPER THUMBNAIL GOES HERE -->
+                </div>
+                <div class="column has-text-left has-text-centered-touch">
+                    A. Rauf et al. <br>
+                    <b>HPP: Hierarchical Programmatic Probing for Long Video Understanding.</b><br>
+                    arXiv, 2026.
+                    <br />
+                    <span class="nav">
+                        <a href="#">[ArXiv]</a>
+                        <a href="#">[Camera ready]</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <h6>Credits for Webpage</h6>
+            <p>
+                Originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a
+                    href="http://richzhang.github.io/">Richard Zhang</a> for <a
+                    href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a
+                    href="https://github.com/richzhang/webpage-template">here</a>. Refactoring by <a href="https://github.com/richzhang/webpage-template/pull/1"> Marco De Nadai</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -5,256 +5,286 @@
     <meta charset="utf-8">
     <title>HPP: Hierarchical Programmatic Probing for Long Video Understanding</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A coding LLM probes long videos in a REPL and calls a small VLM only for perception.">
     <meta property="og:title" content="HPP: Hierarchical Programmatic Probing for Long Video Understanding" />
     <meta property="og:description" content="Decoupling perception and reasoning for long video understanding via iterative programmatic probing." />
-    <meta property="og:image" content="/assets/project_assets/HPP/example-1.png" />
-
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-        MathJax = {
-            tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] }
-        };
-    </script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <meta property="og:image" content="/assets/project_assets/HPP/main_v1.png" />
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="/assets/project_assets/HPP/hpp-traj.css">
     <style>
-        body {
-            font-family: 'Noto Sans', system-ui, -apple-system, sans-serif;
-            color: #1f2328;
-            background: #fff;
-        }
-        h1, h2, h3, .title {
-            font-family: 'Google Sans', 'Noto Sans', sans-serif;
-            color: #1f2328;
-        }
-        .paper-title {
-            font-size: 2.1rem;
-            font-weight: 700;
-            line-height: 1.25;
-            max-width: 980px;
-            margin: 0 auto;
-        }
-        .venue {
-            font-size: 0.95rem;
-            color: #6a737d;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-top: 0.5rem;
-        }
-        .authors {
-            font-size: 1.1rem;
-            margin-top: 1.25rem;
-            line-height: 1.7;
-        }
-        .authors a {
-            color: #1f2328;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.15s ease;
-        }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Noto Sans', system-ui, -apple-system, sans-serif; color: #1f2328; background: #fff; }
+        h1, h2, h3 { font-family: 'Google Sans', 'Noto Sans', sans-serif; color: #1f2328; }
+        a { color: #1f2328; }
+        img { max-width: 100%; height: auto; }
+        .wrap { max-width: 900px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+
+        header { text-align: center; padding: 3rem 0 2rem; }
+        .paper-title { font-size: 2.1rem; font-weight: 700; line-height: 1.25; max-width: 980px; margin: 0 auto; }
+        .paper-title .hpp { color: #3f75ed; }
+        .paper-title .sub { display: block; font-size: 1.45rem; font-weight: 500; line-height: 1.35; margin-top: .4rem; }
+        .venue-logo { display: inline-block; margin-bottom: 1.4rem; }
+        .venue-logo img { height: 40px; width: auto; display: block; }
+        .authors { font-size: 1.1rem; margin-top: 1.25rem; line-height: 1.7; }
+        .authors a { text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s ease; }
         .authors a:hover { border-bottom-color: #1f2328; }
-        .affiliations {
-            font-size: 0.95rem;
-            color: #4a5568;
-            margin-top: 0.5rem;
-        }
-        .affil-logos {
-            margin-top: 1.25rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 2.5rem;
-        }
-        .affil-logos img {
-            height: 38px;
-            width: auto;
-            max-width: 140px;
-            object-fit: contain;
-        }
-        .links {
-            margin-top: 1.5rem;
-        }
-        .links a {
-            display: inline-block;
-            background: #1f2328;
-            color: #fff;
-            padding: 0.45rem 1.0rem;
-            margin: 0.25rem 0.25rem;
-            border-radius: 999px;
-            font-size: 0.92rem;
-            font-weight: 500;
-            transition: background 0.15s ease;
-        }
+        .affiliations { font-size: .95rem; color: #4a5568; margin-top: .5rem; }
+        .affil-logos { margin-top: 1.4rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.2rem 3rem; }
+        .affil-logos img { display: block; width: auto; }
+        .affil-logos img.qub { height: 46px; } .affil-logos img.amd { height: 24px; } .affil-logos img.qmul { height: 40px; }
+        .links { margin-top: 1.5rem; }
+        .links a { display: inline-block; background: #1f2328; color: #fff; padding: .45rem 1rem; margin: .25rem; border-radius: 999px;
+                   font-size: .92rem; font-weight: 500; text-decoration: none; transition: background .15s ease; }
         .links a:hover { background: #4a5568; }
-        .links a.disabled {
-            background: #e1e4e8;
-            color: #6a737d;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-        .section { padding: 2.5rem 1.5rem; }
-        .container { max-width: 900px; }
-        h2.section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.4rem;
-            border-bottom: 1px solid #eaecef;
-            text-align: left;
-        }
-        .abstract p, .body-text {
-            font-size: 1.02rem;
-            line-height: 1.7;
-            text-align: justify;
-            color: #2d3748;
-        }
-        figure {
-            margin: 0 auto;
-            text-align: center;
-        }
-        figure img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
-        figure.fig-main { max-width: 720px; }
-        figure.fig-example { max-width: 560px; }
-        .trace-buttons {
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .trace-buttons a {
-            display: inline-block;
-            background: #fff;
-            color: #1f2328;
-            border: 1px solid #d0d7de;
-            padding: 0.4rem 0.95rem;
-            margin: 0.2rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background 0.15s ease, border-color 0.15s ease;
-        }
-        .trace-buttons a:hover {
-            background: #f6f8fa;
-            border-color: #1f2328;
-        }
-        .trace-buttons .label {
-            display: inline-block;
-            color: #6a737d;
-            font-size: 0.88rem;
-            margin-right: 0.5rem;
-        }
-        figcaption {
-            font-size: 0.92rem;
-            color: #4a5568;
-            margin-top: 0.85rem;
-            line-height: 1.55;
-            text-align: justify;
-        }
+        .links a.alt { background: #fff; color: #1f2328; box-shadow: inset 0 0 0 1.5px #1f2328; }
+        .links a.alt:hover { background: #f6f8fa; }
+
+        .divider { border: 0; border-top: 1px solid #e3e6ea; margin: 2rem 0 0; }
+        .tldr { margin: 1.5rem 0 0; font-size: 1.05rem; line-height: 1.7; color: #2d3748; text-align: left; }
+        .tldr .label { font-weight: 700; color: #1f2328; }
+
+        section { padding: 2.4rem 0; }
+        .sep { border: 0; border-top: 1px solid #e3e6ea; width: calc(100% - 40px); max-width: 860px; margin: 0 auto; }
+        h2.section-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 1.2rem; }
+        .body-text { font-size: 1.02rem; line-height: 1.7; color: #2d3748; }
+        figure { margin: 0 auto; text-align: center; }
+        figcaption { font-size: .9rem; color: #4a5568; margin-top: .8rem; line-height: 1.55; text-align: left; }
         figcaption b { color: #1f2328; }
-        .bibtex {
-            background: #f6f8fa;
-            border: 1px solid #eaecef;
-            border-radius: 6px;
-            padding: 1rem 1.25rem;
-            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-            font-size: 0.88rem;
-            white-space: pre;
-            overflow-x: auto;
-            color: #24292e;
+
+        /* method */
+        figure.overview { max-width: 780px; margin: 0 auto 1.6rem; }
+        .intro { margin: 0 0 1rem; }
+        .method details { border: 1px solid #e3e6ea; margin: 0; }
+        .method details + details { border-top: 0; }
+        .method details:first-child { border-radius: 6px 6px 0 0; }
+        .method details:last-child { border-radius: 0 0 6px 6px; }
+        .method summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: .55rem; padding: .75rem 1rem;
+                          font-family: 'Google Sans', 'Noto Sans', sans-serif; font-weight: 700; font-size: 1.05rem; }
+        .method summary::-webkit-details-marker { display: none; }
+        .method summary::after { content: "+"; margin-left: auto; font-weight: 400; font-size: 1.3rem; line-height: 1; color: #6a737d; }
+        .method details[open] summary::after { content: "\2212"; }
+        .method summary:hover { background: #f6f8fa; }
+        .method .n { color: #6a737d; }
+        .md-body { padding: 0 1rem 1.1rem; }
+        .md-body p { margin: 0 0 1rem; font-size: .97rem; line-height: 1.65; color: #2d3748; }
+        .md-body a.fig { display: block; margin: 0 auto; }
+        .md-body a.fig img { display: block; width: 100%; }
+
+        /* trajectory teaser */
+        .teaser-q { font-size: 1rem; line-height: 1.6; margin: 0 0 .3rem; }
+        #teaser-map { min-height: 180px; margin-top: 1rem; }
+        .cta { margin-top: 1.6rem; text-align: center; }
+        .cta a { display: inline-block; background: #1f2328; color: #fff; padding: .5rem 1.1rem; border-radius: 999px; text-decoration: none; font-size: .92rem; font-weight: 500; }
+        .cta a:hover { background: #4a5568; }
+
+        /* results */
+        h3.sub-title { font-size: 1.08rem; font-weight: 400; color: #1f2328; margin: 2rem 0 .7rem; }
+        h2.section-title + h3.sub-title { margin-top: 0; }
+        .scores-note { font-size: .88rem; color: #6a737d; margin: .6rem 0 0; line-height: 1.55; }
+        .panel { border: 1px solid #e3e6ea; border-radius: 6px; padding: .7rem 1rem .5rem; }
+        .panel-title { font-size: .95rem; color: #1f2328; }
+        .panel-sub { font-size: .84rem; color: #6a737d; margin: .1rem 0 .5rem; }
+        .axes { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+        table.nums { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: .95rem; font-variant-numeric: tabular-nums; }
+        table.nums th { font-size: .8rem; font-weight: 500; color: #6a737d; padding: .3rem .4rem; text-align: right; }
+        table.nums td { padding: .4rem .4rem; text-align: right; color: #2d3748; border-top: 1px solid #eef0f3; }
+        table.nums th:first-child, table.nums td:first-child { text-align: left; }
+        table.nums col.c1 { width: 46%; } table.nums col.c2 { width: 32%; } table.nums col.c3 { width: 22%; }
+        table.nums tr.pad td { border-top: 1px solid transparent; }
+        table.nums b { font-weight: 700; color: #1f2328; }
+        table.nums.main th, table.nums.main td { text-align: center; }
+        table.nums.main td { font-size: 1.05rem; font-weight: 700; color: #1f2328; }
+
+        .bibtex { background: #f6f8fa; border: 1px solid #eaecef; border-radius: 6px; padding: 1rem 1.25rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+                  font-size: .88rem; white-space: pre; overflow-x: auto; color: #24292e; }
+        footer { padding: 1.5rem 0 2rem; font-size: .85rem; color: #6a737d; }
+        footer a { color: #4a5568; }
+
+        @media (max-width: 680px) {
+            .paper-title { font-size: 1.55rem; }
+            table.nums.main th { white-space: normal; font-size: .72rem; }
+            .paper-title .sub { font-size: 1.1rem; }
+            .axes { grid-template-columns: 1fr; gap: 1rem; }
+            table.nums tr.pad { display: none; }
+            .tldr { font-size: .98rem; }
+            section { padding: 2rem 0; }
         }
-        footer.footer {
-            background: #f6f8fa;
-            padding: 1.5rem;
-            font-size: 0.85rem;
-            color: #6a737d;
-            margin-top: 2rem;
-        }
-        footer.footer a { color: #4a5568; text-decoration: underline; }
-        .teaser { margin-top: 1rem; }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="container has-text-centered" style="padding: 3rem 1.5rem 1rem;">
-            <h1 class="paper-title">HPP: Hierarchical Programmatic Probing for Long Video Understanding by Decoupling Perception and Reasoning</h1>
+    <header class="wrap">
+        <a class="venue-logo" href="https://2026.emnlp.org/"><img src="/assets/project_assets/HPP/emnlp2026.png" alt="EMNLP 2026"></a>
+        <h1 class="paper-title"><span class="hpp">HPP</span>: Hierarchical Programmatic Probing
+            <span class="sub">for Long Video Understanding by Decoupling Perception and Reasoning</span></h1>
 
-            <div class="authors">
-                <a href="https://awaisrauf.com">Awais Rauf</a><sup>1</sup>&nbsp;&nbsp;
-                <a href="https://ahmedhasssan.github.io/">Ahmed Hassan</a><sup>2</sup>&nbsp;&nbsp;
-                <a href="https://www.qmul.ac.uk/eecs/people/profiles/slabaughgreg.html">Greg Slabaugh</a><sup>3</sup>
-            </div>
-            <div class="affiliations">
-                <sup>1</sup>Queen's University Belfast &nbsp;&middot;&nbsp;
-                <sup>2</sup>AMD &nbsp;&middot;&nbsp;
-                <sup>3</sup>Queen Mary University of London
-            </div>
-
-            <div class="affil-logos">
-                <img src="/assets/project_assets/HPP/qub.png" alt="Queen's University Belfast">
-                <img src="/assets/project_assets/HPP/amd.svg" alt="AMD">
-                <img src="/assets/project_assets/HPP/qmul.png" alt="Queen Mary University of London">
-            </div>
-
-            <div class="links">
-                <a href="https://arxiv.org/abs/2606.21734">Paper</a>
-                <a href="https://arxiv.org/abs/2606.21734">arXiv</a>
-                <a href="#" class="disabled">Code</a>
-                <a href="#bibtex">BibTeX</a>
-            </div>
+        <div class="authors">
+            <a href="https://awaisrauf.com">Awais Rauf</a><sup>1</sup>&nbsp;&nbsp;
+            <a href="https://ahmedhasssan.github.io/">Ahmed Hassan</a><sup>2</sup>&nbsp;&nbsp;
+            <a href="https://www.qmul.ac.uk/eecs/people/profiles/slabaughgreg.html">Greg Slabaugh</a><sup>3</sup>
         </div>
+        <div class="affiliations">
+            <sup>1</sup>Queen's University Belfast &nbsp;&middot;&nbsp;
+            <sup>2</sup>AMD &nbsp;&middot;&nbsp;
+            <sup>3</sup>Queen Mary University of London
+        </div>
+        <div class="affil-logos">
+            <img class="qub" src="/assets/project_assets/HPP/qub_logo.svg" alt="Queen's University Belfast">
+            <img class="amd" src="/assets/project_assets/HPP/amd.svg" alt="AMD">
+            <img class="qmul" src="/assets/project_assets/HPP/qmul_logo.svg" alt="Queen Mary University of London">
+        </div>
+
+        <div class="links">
+            <a href="https://arxiv.org/abs/2606.21734">Paper</a>
+            <a href="https://github.com/AwaisRauf/hpp">Code</a>
+            <a href="/HPP/trajectories" class="alt">Trajectories</a>
+            <a href="#bibtex" class="alt">BibTeX</a>
+        </div>
+
+        <hr class="divider">
+
+        <p class="tldr">
+            <span class="label">TL;DR:</span>
+            Vision-language models perform fine-grained perception and multi-step temporal reasoning jointly in latent space,
+            limiting their ability to plan and execute multi-step strategies over long videos. We show that decoupling the two
+            and reformulating long video understanding as iterative programmatic probing of a hierarchically segmented video
+            yields substantial improvements. With GPT-5-mini and Qwen3-VL-2B, HPP reaches 66.4% accuracy on LongVideoBench
+            while using up to 16&times; fewer tokens than standard frame sampling.
+        </p>
     </header>
 
-    <section class="section teaser" style="padding-top: 1rem; padding-bottom: 0.5rem;">
-        <div class="container">
-            <figure class="fig-main">
-                <img src="/assets/project_assets/HPP/main_v1-1.png" alt="HPP method overview">
-                <figcaption><b>Overview of HPP.</b> An LLM iteratively probes a video by executing code and using probing functions.</figcaption>
-            </figure>
+    <hr class="sep">
+
+    <section class="wrap">
+        <h2 class="section-title">Method</h2>
+        <p class="body-text intro">A reasoning LLM starts with minimal information, devises a strategy, and executes it using code that probes
+            the video through probing functions.</p>
+        <figure class="overview">
+            <img src="/assets/project_assets/HPP/main_v1.png" alt="HPP overview: an LLM with minimal context writes code in a REPL that calls search, perception, sampling and structure functions over the video, then answers with FINAL()">
+        </figure>
+        <div class="method">
+            <details>
+                <summary><span class="n">1</span>Information-Density-Aware Hierarchy</summary>
+                <div class="md-body">
+                    <p>Shot boundaries and a motion score per shot come straight from the compressed bitstream (I-frames, motion vectors,
+                        residuals), without decoding frames. Shots are grouped into scenes and clusters for coarse-to-fine navigation.</p>
+                    <a class="fig" href="/assets/project_assets/HPP/shots.jpg" style="max-width: 540px;"><img src="/assets/project_assets/HPP/shots.jpg" alt="Raw frames are converted to shots using compressed-video I-frames, motion vectors and residuals"></a>
+                </div>
+            </details>
+            <details>
+                <summary><span class="n">2</span>Late-Interaction Semantic Retrieval</summary>
+                <div class="md-body">
+                    <p>The LLM searches shots and scenes with text queries. Frames are sampled in proportion to motion, and scores combine
+                        token&ndash;frame MaxSim with global similarity, which separates visually similar shots.</p>
+                    <a class="fig" href="/assets/project_assets/HPP/method_search.png" style="max-width: 470px;"><img src="/assets/project_assets/HPP/method_search.png" alt="Late-interaction search: motion-adaptive frame sampling, MaxSim between text and frame tokens plus global similarity"></a>
+                </div>
+            </details>
+            <details>
+                <summary><span class="n">3</span>Structured Probing with On-Demand Perception</summary>
+                <div class="md-body">
+                    <p>Probing functions (search, sample a shot, zoom, frames in a range, clips) localize evidence coarse to fine.
+                        The 2B VLM is called only on the frames the LLM picks, and the reasoning stays in code.</p>
+                    <a class="fig" href="/assets/project_assets/HPP/method_probing.png" style="max-width: 680px;"><img src="/assets/project_assets/HPP/method_probing.png" alt="Coarse-to-fine probing: scene-level search, shot-level refinement, dense frame sampling and VLM verification"></a>
+                </div>
+            </details>
         </div>
     </section>
 
-    <section class="section abstract" style="padding-top: 1.5rem;">
-        <div class="container">
-            <h2 class="section-title">Abstract</h2>
-            <p>
-                Understanding long videos requires fine-grained perception and multi-step, higher-order reasoning over complex, long-range spatiotemporal dynamics. Vision-language models (VLMs) encode video frames into visual tokens and attempt to perform both perception and multi-step planning latently, within a single forward pass. This coupled formulation, however, is bottlenecked by the LLM's limited capacity to discover and execute multi-step strategies in its latent representations. To address this bottleneck, we propose Hierarchical Programmatic Probing (HPP), a framework that decouples semantic perception from higher-order temporal reasoning by reformulating long video understanding as iterative, programmatic exploration of a hierarchically segmented video. Specifically, a coding-capable LLM plans and executes a multi-step strategy in an interactive coding environment, probing the video for information and invoking a VLM for localized perception on demand. To make probing tractable over long videos, we introduce three components: information-density-aware hierarchical segmentation, late-interaction semantic retrieval, and structured probing functions for coarse-to-fine temporal localization. We validate HPP on LongVideoBench, which requires both fine-grained perception and long-range relational reasoning, and show that decoupling the two via iterative programmatic probing yields substantial gains. Further results on EgoSchema, VideoMME, and MLVU demonstrate the effectiveness of our approach across diverse long-video benchmarks.
-            </p>
-        </div>
+    <hr class="sep">
+
+    <section class="wrap" id="trajectory">
+        <h2 class="section-title">Probing Example</h2>
+        <p class="teaser-q">
+            <b>Q:</b> In the oil painting … a few women are stirring the liquid with wooden sticks. What color is the liquid inside the bucket?
+        </p>
+        <div id="teaser-map"></div>
+        <div class="cta"><a href="/HPP/trajectories">More Trajectories →</a></div>
     </section>
 
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Visual Reasoning Traces</h2>
-            <div class="trace-buttons">
-                <span class="label">Pick a trace:</span>
-                <a href="#">Example 1</a>
-                <a href="#">Example 2</a>
-                <a href="#">Example 3</a>
+    <hr class="sep">
+
+    <section class="wrap">
+        <h2 class="section-title">Results</h2>
+        <h3 class="sub-title">1) HPP with GPT-5-mini and Qwen3-VL-2B</h3>
+        <div class="panel">
+            <table class="nums main">
+                <thead><tr><th>LongVideo<wbr>Bench</th><th>EgoSchema</th><th>MLVU</th><th>Video-MME</th></tr></thead>
+                <tbody><tr><td>66.4</td><td>70.4</td><td>69.3</td><td>71.8</td></tr></tbody>
+            </table>
+        </div>
+        <p class="scores-note">Accuracy (%).</p>
+
+        <h3 class="sub-title">2) Decoupling Perception from Reasoning Along Two Axes</h3>
+        <div class="axes">
+            <div class="panel">
+                <div class="panel-title">(a) Better Perception, Better Results</div>
+                <div class="panel-sub">HPP with Kimi-K2.6 as the LLM</div>
+                <table class="nums">
+                    <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+                    <thead><tr><th>VLM</th><th>Avg. accuracy</th><th>&Delta;</th></tr></thead>
+                    <tbody>
+                        <tr><td>2B</td><td>70.3</td><td>+10.9</td></tr>
+                        <tr><td>38B</td><td><b>73.5</b></td><td>+7.8</td></tr>
+                        <tr class="pad" aria-hidden="true"><td colspan="3">&nbsp;</td></tr>
+                    </tbody>
+                </table>
             </div>
-            <figure class="fig-example">
-                <img src="/assets/project_assets/HPP/example-1.png" alt="HPP example: iterative probing trace">
-                <figcaption><b>An execution trace.</b> HPP plans in code: search subtitles, scan nearby frames with a VLM, then confirm.</figcaption>
-            </figure>
+            <div class="panel">
+                <div class="panel-title">(b) Stronger Coding LLM, Better Results</div>
+                <div class="panel-sub">HPP with Qwen3-VL-2B as the VLM</div>
+                <table class="nums">
+                    <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+                    <thead><tr><th>LLM</th><th>Avg. accuracy</th><th>&Delta;</th></tr></thead>
+                    <tbody>
+                        <tr><td>MiniMax-M2.5</td><td>59.2</td><td>+1.8</td></tr>
+                        <tr><td>Kimi-K2.6</td><td>68.3</td><td>+10.9</td></tr>
+                        <tr><td>Claude Opus 4.6</td><td><b>76.3</b></td><td>+18.9</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+        <p class="scores-note">Accuracy (%) on a 600-question LongVideoBench subset. &Delta;: gain over the same VLM used on its own.</p>
+
+        <h3 class="sub-title">3) Resource Usage</h3>
+        <p class="body-text" style="margin: 0 0 1.2rem;">HPP uses up to 16&times; fewer tokens than LLM frame sampling on hour-long videos.</p>
+        <figure style="max-width: 560px;">
+            <img src="/assets/project_assets/HPP/token_comparison_single_col.png" alt="Tokens per query for LLM frame sampling and HPP across 15 sub-tasks, ordered by video length">
+            <figcaption><b>Tokens per query</b> across 15 sub-tasks, ordered by video length.</figcaption>
+        </figure>
     </section>
 
-    <section class="section" id="bibtex">
-        <div class="container">
-            <h2 class="section-title">BibTeX</h2>
-            <div class="bibtex">@article{rauf2026hpp,
-  title   = {HPP: Hierarchical Programmatic Probing for Long Video Understanding by Decoupling Perception and Reasoning},
-  author  = {Rauf, Awais and Hasssan, Ahmed and Slabaugh, Greg},
-  journal = {arXiv preprint},
-  year    = {2026}
+    <hr class="sep">
+
+    <section class="wrap" id="bibtex">
+        <h2 class="section-title">BibTeX</h2>
+        <div class="bibtex">@inproceedings{rauf2026hpp,
+  title     = {HPP: Hierarchical Programmatic Probing for Long Video Understanding by Decoupling Perception and Reasoning},
+  author    = {Rauf, Awais and Hassan, Ahmed and Slabaugh, Greg},
+  booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2026}
 }</div>
-        </div>
     </section>
 
+    <hr class="sep">
+
+    <footer>
+        <div class="wrap">Code: <a href="https://github.com/AwaisRauf/hpp">github.com/AwaisRauf/hpp</a> · Trajectories: <a href="/HPP/trajectories">/HPP/trajectories</a></div>
+    </footer>
+
+    <script src="/assets/project_assets/HPP/hpp-traj.js"></script>
+    <script>
+        (function () {
+            var el = document.getElementById("teaser-map");
+            HPPTraj.mountTeaser(el, "/assets/project_assets/HPP/trajectories/", "painting-liquid", "/HPP/trajectories")
+                .catch(function () { document.getElementById("trajectory").style.display = "none"; });
+            var parts = document.querySelectorAll(".method details");
+            parts.forEach(function (d) {
+                d.addEventListener("toggle", function () {
+                    if (d.open) parts.forEach(function (o) { if (o !== d) o.open = false; });
+                });
+            });
+        })();
+    </script>
 </body>
 
 </html>

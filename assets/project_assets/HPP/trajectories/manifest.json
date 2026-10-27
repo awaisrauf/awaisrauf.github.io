@@ -1,0 +1,122 @@
+[
+ {
+  "id": "painting-liquid",
+  "title": "What colour is the liquid in the painting?",
+  "note": "Subtitles and two semantic searches yield four candidate shots. The VLM rules out two (no bucket), but the other two disagree: one claims the liquid is yellow (a distractor option, hallucinated on a museum shot of a different painting), the other says red. The LLM zooms densely into the shot that matches the whole description, a dyeing vat being stirred, and the VLM confirms red.",
+  "dataset": "LongVideoBench",
+  "category": "S2A",
+  "duration": 939.87,
+  "correct": true,
+  "iterations": 7,
+  "vlm_calls": 5,
+  "thumb": "painting-liquid/f_000307.40.jpg"
+ },
+ {
+  "id": "bag-shape",
+  "title": "What shape is the bag when the narrator says ...?",
+  "note": "The quoted subtitle pins the moment, but at that timestamp the VLM describes a different person (short hair, no bag). Rather than trusting it, the LLM cross-checks with visual search and samples denser frames around the moment, where the VLM finds the long-haired person in white carrying a round bag.",
+  "dataset": "LongVideoBench",
+  "category": "T2A",
+  "duration": 1181.26,
+  "correct": true,
+  "iterations": 5,
+  "vlm_calls": 2,
+  "thumb": "bag-shape/f_000469.17.jpg"
+ },
+ {
+  "id": "brief-action",
+  "title": "What does the woman pick up?",
+  "note": "A split-second action. The subtitle locates the moment, but frames around it, and then frames across the whole shot, are inconclusive. The LLM escalates to a short clip, and the VLM sees the woman pick up a gun about 3 seconds in.",
+  "dataset": "LongVideoBench",
+  "category": "T2E",
+  "duration": 592.29,
+  "correct": true,
+  "iterations": 5,
+  "vlm_calls": 3,
+  "thumb": "brief-action/f_000323.88.jpg"
+ },
+ {
+  "id": "missing-tool",
+  "title": "Which tool is never used? (1-hour video)",
+  "note": "A negative question over an hour of video. The LLM searches subtitles and shots for every option, has the VLM confirm cards, coins and a phone calculator at their hits, while the best matches for 'string' show none, and so picks the string.",
+  "dataset": "VideoMME",
+  "category": "Object Recognition",
+  "duration": 3579.47,
+  "correct": true,
+  "iterations": 5,
+  "vlm_calls": 4,
+  "thumb": "missing-tool/f_003558.70.jpg"
+ },
+ {
+  "id": "dual-ring",
+  "title": "What makes the dual diamond ring special?",
+  "note": "A fine detail in a 42-minute video. The first search hits show no ring, then only ordinary single-finger rings. The LLM re-searches with new phrasings and zooms densely around the best match, until the VLM sees one ring spanning the ring and middle fingers.",
+  "dataset": "VideoMME",
+  "category": "Object Reasoning",
+  "duration": 2505.29,
+  "correct": true,
+  "iterations": 7,
+  "vlm_calls": 3,
+  "thumb": "dual-ring/f_000745.22.jpg"
+ },
+ {
+  "id": "needle-court",
+  "title": "Where is the basketball court?",
+  "note": "Needle in a haystack. An 8-frame overview and the first search keyframes show no court. Frames from other search-flagged shots reveal a hoop against the sunset over the ocean, and a dense pass over that shot shows the court sits on a deck at sea.",
+  "dataset": "MLVU_all",
+  "category": "findNeedle",
+  "duration": 766.16,
+  "correct": true,
+  "iterations": 6,
+  "vlm_calls": 4,
+  "thumb": "needle-court/f_000613.71.jpg"
+ },
+ {
+  "id": "count-sliding",
+  "title": "How many water-sliding scenes are there?",
+  "note": "Counting as a program: merge search hits into candidate intervals, screen each with the VLM, tighten the prompt when the counts look inflated, recount the four positive intervals on clips (1 + 1 + 1 + 2), and sum to 5.",
+  "dataset": "MLVU_all",
+  "category": "count",
+  "duration": 513.63,
+  "correct": true,
+  "iterations": 7,
+  "vlm_calls": 21,
+  "thumb": "count-sliding/f_000326.38.jpg"
+ },
+ {
+  "id": "action-order",
+  "title": "In what order do the four actions happen?",
+  "note": "One semantic search per action, VLM verification of each top hit, a broadened search where hits were weak, then clips over the two uncertain regions to fix the order.",
+  "dataset": "MLVU_all",
+  "category": "order",
+  "duration": 490.04,
+  "correct": true,
+  "iterations": 6,
+  "vlm_calls": 8,
+  "thumb": "action-order/f_000450.77.jpg"
+ },
+ {
+  "id": "anomaly-arrest",
+  "title": "What irregularity is in this surveillance video?",
+  "note": "Hypothesis elimination over a 6-minute surveillance video: candidate shots for robbery, explosion and shooting are each checked and rejected (including a clip for the explosion), while frames flagged by a police search show a stopped car and a marked police vehicle.",
+  "dataset": "MLVU_all",
+  "category": "anomaly_reco",
+  "duration": 360.0,
+  "correct": true,
+  "iterations": 8,
+  "vlm_calls": 17,
+  "thumb": "anomaly-arrest/f_000135.00.jpg"
+ },
+ {
+  "id": "ego-roles",
+  "title": "Who is cooking, and who is with the dog?",
+  "note": "Egocentric reasoning: the LLM has the VLM decide, frame by frame, whether the view is first-person. The camera wearer's own hand is at the stove, while the other person is lying on the floor with the dog.",
+  "dataset": "EgoSchema",
+  "category": "",
+  "duration": 180.0,
+  "correct": true,
+  "iterations": 7,
+  "vlm_calls": 4,
+  "thumb": "ego-roles/f_000095.90.jpg"
+ }
+]

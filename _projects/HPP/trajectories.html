@@ -1,0 +1,79 @@
+---
+layout: None
+title: "HPP - Reasoning Trajectories"
+permalink: /HPP/trajectories
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HPP: Reasoning Trajectories</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ten complete reasoning trajectories of HPP on long-video benchmarks: the code it wrote, where it looked in the video, and what the VLM saw.">
+    <meta property="og:title" content="HPP: Reasoning Trajectories" />
+    <meta property="og:description" content="Step-by-step traces of an LLM probing long videos with code and a 2B VLM." />
+    <meta property="og:image" content="/assets/project_assets/HPP/main_v1.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/project_assets/HPP/hpp-traj.css">
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Noto Sans', system-ui, -apple-system, sans-serif; color: #1f2328; background: #fff; }
+        h1, h2, h3 { font-family: 'Google Sans', 'Noto Sans', sans-serif; }
+        a { color: #1f2328; }
+        .wrap { max-width: 920px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+        .topbar { border-bottom: 1px solid #eaecef; }
+        .topbar .wrap { display: flex; align-items: center; gap: 1rem; height: 52px; }
+        .topbar a { text-decoration: none; font-size: .9rem; color: #4a5568; }
+        .topbar a:hover { color: #1f2328; }
+        .topbar .brand { font-family: 'Google Sans', 'Noto Sans', sans-serif; font-weight: 700; color: #1f2328; font-size: 1rem; }
+        .topbar .spacer { flex: 1; }
+        .intro { padding: 2.2rem 0 1.2rem; }
+        .intro h1 { font-size: 1.9rem; line-height: 1.25; margin: 0; font-weight: 700; }
+        #viewer { padding-bottom: 3rem; min-height: 60vh; }
+        footer { border-top: 1px solid #eaecef; padding: 1.5rem 0 2.5rem; font-size: .84rem; color: #6a737d; line-height: 1.6; }
+        noscript p { color: #b91c1c; }
+    </style>
+</head>
+
+<body>
+    <nav class="topbar">
+        <div class="wrap">
+            <a class="brand" href="/HPP">HPP</a>
+            <a href="/HPP">Project page</a>
+            <span class="spacer"></span>
+            <a href="https://github.com/AwaisRauf/hpp">Code</a>
+            <a href="https://arxiv.org/abs/2606.21734">Paper</a>
+        </div>
+    </nav>
+
+    <main class="wrap">
+        <section class="intro">
+            <h1>Reasoning Trajectories</h1>
+        </section>
+
+        <div id="viewer" data-base="/assets/project_assets/HPP/trajectories/"></div>
+        <noscript><p>This page needs JavaScript to render the trajectories.</p></noscript>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            HPP: Hierarchical Programmatic Probing for Long Video Understanding by Decoupling Perception and Reasoning ·
+            <a href="/HPP">project page</a> · <a href="https://github.com/AwaisRauf/hpp">code</a>.
+            Export your own runs with <code>tools/export_trajectory.py</code>.
+        </div>
+    </footer>
+
+    <script src="/assets/project_assets/HPP/hpp-traj.js"></script>
+    <script>
+        (function () {
+            var el = document.getElementById("viewer");
+            var q = new URLSearchParams(location.search).get("data");
+            HPPTraj.mountList(el, q || el.dataset.base).catch(function (e) {
+                el.innerHTML = '<p style="color:#b91c1c">Could not load trajectories (' + e.message + ').</p>';
+            });
+        })();
+    </script>
+</body>
+
+</html>

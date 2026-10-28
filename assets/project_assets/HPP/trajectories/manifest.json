@@ -37,7 +37,7 @@
  },
  {
   "id": "missing-tool",
-  "title": "Which tool is never used? (1-hour video)",
+  "title": "Which tool is never used?",
   "note": "A negative question over an hour of video. The LLM searches subtitles and shots for every option, has the VLM confirm cards, coins and a phone calculator at their hits, while the best matches for 'string' show none, and so picks the string.",
   "dataset": "VideoMME",
   "category": "Object Recognition",

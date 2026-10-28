@@ -1,6 +1,7 @@
 /* HPP trajectory viewer. Renders exported reasoning traces (see tools/export_trajectory.py).
- *   HPPTraj.mountList(el, baseUrl)              every trajectory on one page, each with an expandable step-by-step trace
- *   HPPTraj.mountTeaser(el, baseUrl, id, href)  legend + temporal map of one trajectory; a step links to href#id/step
+ *   HPPTraj.mountList(el, baseUrl)                    a thumbnail per trajectory; the selected one is shown in full
+ *   HPPTraj.mountTeaser(el, baseUrl, id, href, opts)  question, answer, video and step map of one trajectory;
+ *                                                     a step links to href#id/step (opts.question: a shorter question)
  */
 (function () {
   "use strict";
@@ -17,8 +18,10 @@
     ["structure", "structure information"], ["subtitle", "subtitle hit"], ["search", "semantic search hit"],
     ["frames", "sampled frames"], ["zoom", "zoom"], ["clip", "clip"], ["vlm", "frame shown to the VLM"],
   ];
-  const DATASET = { LongVideoBench: "LongVideoBench", VideoMME: "Video-MME", MLVU_all: "MLVU", MLVU: "MLVU", EgoSchema: "EgoSchema" };
   const LETTERS = "ABCDEF";
+  const CHECK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const CHEV = '<svg class="ht-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const CROSS = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>';
 
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const h = (tag, attrs, html) => {
@@ -34,8 +37,8 @@
     const hh = Math.floor(t / 3600), mm = Math.floor((t % 3600) / 60), ss = String(t % 60).padStart(2, "0");
     return hh ? `${hh}:${String(mm).padStart(2, "0")}:${ss}` : `${mm}:${ss}`;
   };
-  const fmtDur = (t) => (t >= 3600 ? `${(t / 3600).toFixed(1)} h` : `${Math.round(t / 60)} min`);
-  const ds = (d) => DATASET[d] || d || "";
+  /* a video's length in words: "16-min video", "1-hour video" */
+  const length = (t) => (t < 55 * 60 ? `${Math.round(t / 60)}-min video` : `${+(t / 3600).toFixed(1)}-hour video`);
   const cache = {};
   const load = (url) => (cache[url] = cache[url] || fetch(url).then((r) => { if (!r.ok) throw new Error(url); return r.json(); }));
 
@@ -79,55 +82,105 @@
     return [...set];
   }
   const chips = (calls) => calls.map((c) => `<span class="chip ${KIND[c] || ""}">${esc(c)}</span>`).join("");
+  const finalOf = (s) => (!s.blocks.length && /FINAL\(([^)]*)\)/.exec(s.text || "")) || null;
 
-  /* ── legend + temporal map ───────────────────────────────────── */
-  const renderLegend = () => h("div", { class: "tmap-legend" },
-    LEGEND.map(([k, label]) => `<span><i class="${k}" style="background:var(--k-${k})"></i>${label}</span>`).join(""));
+  /* what a step mainly did: its colour (the same as its marks) and a short label */
+  function stepRole(s) {
+    if (!s.blocks.length) return finalOf(s) ? ["answer", "Answer"] : ["think", "Reason"];
+    const calls = new Set(s.blocks.flatMap((b) => b.calls));
+    const vlm = s.blocks.flatMap((b) => b.vlm);
+    const has = (...cs) => cs.some((c) => calls.has(c));
+    if (vlm.some((v) => v.clip)) return ["vlm", "VLM watches a clip"];
+    if (vlm.length) return ["vlm", has("zoom") ? "Zoom in + VLM" : has("search_in_shots", "search_in_scenes") ? "Search + VLM"
+      : has("get_overview") ? "Overview + VLM" : "VLM checks frames"];
+    if (has("zoom")) return ["frames", "Zoom into a shot"];
+    if (has("get_clip")) return ["frames", "Cut clips"];
+    if (has("search_in_shots", "search_in_scenes")) return ["search", "Semantic search"];
+    if (has("find_times", "search_subtitles")) return ["subtitle", "Search subtitles"];
+    if ([...calls].some((c) => KIND[c] === "structure")) return ["structure", "Read structure"];
+    if (has("summarize_subtitles", "get_subtitles")) return ["subtitle", "Read subtitles"];
+    if ([...calls].some((c) => KIND[c] === "frames")) return ["frames", "Sample frames"];
+    return ["think", "Reason in code"];
+  }
 
-  function renderMap(root, d, onLane) {
+  /* ── question, answer, video and the step map, on one grid ───── */
+  function renderMap(d, base, opts) {
     const T = d.video.duration || 1;
     const pct = (t) => `${Math.min(100, Math.max(0, (100 * t) / T)).toFixed(3)}%`;
     const wid = (a, b) => `${Math.max(0, (100 * (b - a)) / T).toFixed(3)}%`;
-    const map = h("div", { class: "tmap", role: "group", "aria-label": "Where each step probed the video" });
+    const card = h("div", { class: "ht" + (opts.flat ? " flat" : "") });
+    const row = (label, cls, tag, attrs) => {
+      const r = card.appendChild(h(tag || "div", Object.assign({ class: "ht-row " + cls }, attrs)));
+      r.appendChild(h("div", { class: "ht-lab" }, label));
+      return r;
+    };
 
-    const strip = h("div", { class: "tmap-strip" });
-    d.filmstrip.forEach((f) => strip.appendChild(h("img", { src: root.base + f.src, alt: "", loading: "lazy", title: fmtTime(f.t) })));
-    const r1 = h("div", { class: "tmap-row" }, `<div class="tmap-label"><span class="lw">video</span></div>`);
-    r1.appendChild(strip);
-    map.appendChild(r1);
+    const q = (opts.question || d.question).trim(), cut = q.lastIndexOf(" ");
+    row("Question", "ht-qa").appendChild(h("p", { class: "ht-q" },
+      `${esc(q.slice(0, cut))} <span class="nw">${esc(q.slice(cut + 1))}&nbsp;<span class="len">·&nbsp;${length(T)}</span></span>`));
+    const opt = d.options[LETTERS.indexOf(d.prediction)];
+    const clips = d.steps.flatMap((s) => s.blocks.flatMap((b) => b.vlm.filter((v) => v.clip))).length;
+    const seen = `<b>${d.stats.frames_seen}</b>`;
+    row("Answer", "ht-qa").appendChild(h("div", { class: "ht-arow" },
+      `<span class="ht-ans${d.correct ? "" : " no"}">${d.correct ? CHECK : CROSS}${esc(d.prediction)}) ${esc(opt ?? "")}</span>` +
+      `<span class="ht-stat">VLM inspected ${clips ? `${seen} frames and ${clips} clip${clips > 1 ? "s" : ""}`
+        : `${seen} of ${d.video.frames.toLocaleString("en-US")} frames`}</span>`));
+    card.appendChild(h("div", { class: "ht-rule" }));
 
-    const axis = h("div", { class: "tmap-axis" });
+    const strip = row("Video", "ht-video").appendChild(h("div", { class: "ht-strip" }));
+    d.filmstrip.forEach((f) => strip.appendChild(h("img", { src: base + f.src, alt: "", loading: "lazy", title: fmtTime(f.t) })));
+    const axis = row("Trajectory", "ht-axisrow").appendChild(h("div", { class: "ht-axis" }));
     for (let i = 0; i <= 4; i++) axis.appendChild(h("span", { style: `left:${i * 25}%` }, fmtTime((T * i) / 4)));
-    const r2 = h("div", { class: "tmap-row" }, `<div></div>`);
-    r2.appendChild(axis);
-    map.appendChild(r2);
 
+    const used = new Set();
+    const mark = (track, kind, style, title, data) => {
+      used.add(kind);
+      track.appendChild(h("div", Object.assign({ class: `mk ${kind}`, style, title }, data)));
+    };
     d.steps.forEach((s, i) => {
-      const track = h("div", { class: "tmap-track" });
+      const [kind, label] = stepRole(s);
+      const link = opts.stepHref ? { href: opts.stepHref(i) } : { role: "button", tabindex: "0" };
+      const lane = row(`<span class="ht-n">${i + 1}</span><span class="ht-name">${label}</span>${opts.expandable ? CHEV : ""}`,
+        `ht-step k-${kind}`, opts.stepHref ? "a" : "div", Object.assign({ "aria-label": `Step ${i + 1}: ${label}` }, link,
+          opts.expandable ? { "aria-expanded": "false" } : {}));
+      const track = lane.appendChild(h("div", { class: "ht-track" }));
       const kinds = stepKinds(s).map((c) => KIND[c]);
       const spans = s.blocks.flatMap((b) => b.spans);
       if (kinds.includes("structure") && !spans.some((x) => x.kind !== "subtitle"))
-        track.appendChild(h("div", { class: "mk structure", style: `left:0;width:100%`, title: "whole-video structure (shots / scenes)" }));
+        mark(track, "structure", "left:1%;width:98%", "whole-video structure (shots / scenes)");
       if (kinds.includes("subtitle") && !spans.some((x) => x.kind === "subtitle"))
-        track.appendChild(h("div", { class: "mk structure", style: `left:0;width:100%`, title: "subtitle overview" }));
+        mark(track, "structure", "left:1%;width:98%", "subtitle overview");
       for (const sp of spans) {
         const point = sp.t1 - sp.t0 < T / 400;
         const title = `${sp.kind}: ${fmtTime(sp.t0)}${point ? "" : "–" + fmtTime(sp.t1)}${sp.label ? " · " + sp.label : ""}`;
-        const style = sp.kind === "subtitle" ? `left:${pct(sp.t0)}` : `left:${pct(sp.t0)};width:${wid(sp.t0, sp.t1)}`;
-        track.appendChild(h("div", { class: `mk ${sp.kind}`, style, title }));
+        mark(track, sp.kind, sp.kind === "subtitle" ? `left:${pct(sp.t0)}` : `left:${pct(sp.t0)};width:${wid(sp.t0, sp.t1)}`, title);
       }
       s.blocks.forEach((b) => b.vlm.forEach((v) => v.frames.forEach((f) =>
-        track.appendChild(h("div", { class: "mk vlm", style: `left:${pct(f.t)}`, title: `VLM frame ${fmtTime(f.t)}` })))));
-      if (!track.children.length && s.blocks.length) track.appendChild(h("span", { class: "tmap-note" }, "reasoning in code"));
-      const fin = /FINAL\(([^)]*)\)/.exec(s.text || "");
-      if (fin && !s.blocks.length) track.appendChild(h("div", { class: "tmap-final" }, `FINAL(${esc(fin[1].replace(/["']/g, ""))})`));
-      const lane = h("div", { class: "tmap-row tmap-lane", "data-step": i, title: `Step ${i + 1}` },
-        `<div class="tmap-label"><span class="lw">step </span>${i + 1}</div>`);
-      lane.appendChild(track);
-      if (onLane) lane.addEventListener("click", () => onLane(i));
-      map.appendChild(lane);
+        mark(track, "vlm", `left:${pct(f.t)}`, "", { "data-src": base + f.src, "data-cap": `Step ${i + 1} · ${fmtTime(f.t)}` }))));
+      const fin = finalOf(s);
+      if (fin) track.appendChild(h("div", { class: "ht-final" }, `FINAL(${esc(fin[1].replace(/["'\s]/g, ""))})`));
+      if (opts.onStep) {
+        lane.addEventListener("click", () => opts.onStep(i));
+        lane.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); opts.onStep(i); } });
+      }
     });
-    return map;
+
+    const legend = row("", "ht-legendrow").appendChild(h("div", { class: "ht-legend" }));
+    LEGEND.filter(([k]) => used.has(k)).forEach(([k, label]) => legend.appendChild(h("span", {}, `<i class="${k}"></i>${label}`)));
+
+    /* hovering a frame the VLM saw shows it */
+    const tip = card.appendChild(h("div", { class: "ht-tip", "aria-hidden": "true" }));
+    card.addEventListener("mouseover", (e) => {
+      const m = e.target.closest(".mk.vlm");
+      if (!m) { tip.classList.remove("on"); return; }
+      tip.innerHTML = `<img src="${m.dataset.src}" alt=""><span>${esc(m.dataset.cap)}</span>`;
+      const r = m.getBoundingClientRect(), c = card.getBoundingClientRect(), half = 90;
+      tip.style.left = `${Math.min(c.width - half, Math.max(half, r.left + r.width / 2 - c.left))}px`;
+      tip.style.top = `${r.top - c.top}px`;
+      tip.classList.add("on");
+    });
+    card.addEventListener("mouseleave", () => tip.classList.remove("on"));
+    return card;
   }
 
   /* ── one VLM call ────────────────────────────────────────────── */
@@ -167,13 +220,12 @@
   }
 
   /* ── one step: what the LLM wrote, what came back, what the VLM saw ── */
-  function renderStep(d, s, i, base) {
-    const box = h("div", { class: "tx-step", id: `${d.id}-${i + 1}` });
+  function stepBody(d, s, base) {
+    const el = h("div", { class: "ht-detail-body" });
     const calls = stepKinds(s);
-    box.appendChild(h("div", { class: "tv-step-head" },
-      `<span class="tx-step-n">Step ${i + 1}</span>` + (calls.length ? chips(calls) : "") +
-      (s.seconds ? `<span class="time">${s.seconds.toFixed(0)} s</span>` : "")));
-    const el = box.appendChild(h("div", { class: "tx-step-body" }));
+    if (calls.length || s.seconds)
+      el.appendChild(h("div", { class: "ht-detail-meta" },
+        `<span class="ht-chips">${chips(calls)}</span><span class="ht-secs">${s.seconds ? `${s.seconds.toFixed(0)} s` : ""}</span>`));
     const said = (s.text || "").replace(/FINAL\([^)]*\)/, "").trim();
     if (said) el.appendChild(h("div", { class: "tv-intent" }, `<p>${esc(said)}</p>`));
     s.blocks.forEach((b) => {
@@ -186,80 +238,90 @@
       b.vlm.forEach((v) => blk.appendChild(renderVlm(v, base)));
       el.appendChild(blk);
     });
-    const fin = /FINAL\(([^)]*)\)/.exec(s.text || "");
-    if (fin && !s.blocks.length) {
+    const fin = finalOf(s);
+    if (fin) {
       const letter = fin[1].replace(/["'\s]/g, "");
       const opt = d.options[LETTERS.indexOf(letter)];
       el.appendChild(h("div", { class: "tv-final" }, `FINAL(${esc(letter)})${opt ? `<span>${esc(opt)}</span>` : ""}${d.correct ? "<span>✓ correct</span>" : ""}`));
     }
-    return box;
+    return el;
   }
 
-  /* ── one trajectory: question, answer, map, and the expandable step-by-step trace ── */
+  /* ── one trajectory: the map, each step opening in place under its row ── */
   function renderExample(d, base, n) {
-    const sec = h("section", { class: "tx", id: d.id });
-    sec.appendChild(h("div", { class: "tx-head" }, `<span class="tx-n">${n}</span><h2 class="tx-title">${esc(d.title)}</h2>`));
+    const sec = h("article", { class: "tx" });
+    const all = h("button", { class: "tx-all", type: "button" }, "Expand all steps");
+    sec.appendChild(h("div", { class: "tx-head" }, `<span class="tx-n">${n}</span><h2 class="tx-title">${esc(d.title)}</h2>`)).appendChild(all);
     const body = sec.appendChild(h("div", { class: "tx-body" }));
-    body.appendChild(h("p", { class: "tx-qa" }, `<b>Q:</b> ${esc(d.question)}`));
-    const pi = LETTERS.indexOf(d.prediction);
-    body.appendChild(h("p", { class: "tx-qa" },
-      `<b>A:</b> ${esc(d.prediction)}) ${esc(d.options[pi] ?? "")}` + (d.correct ? ` <span class="tx-ok">✓ correct</span>` : "")));
-
-    const traj = h("details", { class: "tx-traj" }, `<summary>Trajectory · ${d.steps.length} steps</summary>`);
-    const list = h("div", { class: "tx-steps" });
-    const stepEls = d.steps.map((s, i) => list.appendChild(renderStep(d, s, i, base)));
-    traj.appendChild(list);
+    const map = body.appendChild(renderMap(d, base, { flat: true, expandable: true, onStep: (i) => toggle(i) }));
+    const lanes = [...map.querySelectorAll(".ht-step")];
+    const panels = lanes.map((lane, i) => {
+      const p = h("div", { class: `ht-detail k-${stepRole(d.steps[i])[0]}`, id: `${d.id}-${i + 1}`, hidden: "" });
+      lane.after(p);
+      return p;
+    });
+    const sync = () => { all.textContent = panels.every((p) => !p.hidden) ? "Collapse all steps" : "Expand all steps"; };
+    function toggle(i, open) {
+      const p = panels[i];
+      if (!p) return;
+      open = open ?? p.hidden;
+      if (open && !p.firstChild) p.appendChild(stepBody(d, d.steps[i], base)); // built on first open
+      p.hidden = !open;
+      lanes[i].setAttribute("aria-expanded", String(open));
+      sync();
+    }
+    all.addEventListener("click", () => { const open = panels.some((p) => p.hidden); panels.forEach((_, i) => toggle(i, open)); });
     const openStep = (i) => {
-      if (i < 0 || i >= stepEls.length) return;
-      traj.open = true;
-      const el = stepEls[i];
-      el.scrollIntoView({ block: "start" });
-      el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1500);
+      const lane = lanes[i];
+      if (!lane) return;
+      toggle(i, true);
+      lane.scrollIntoView({ block: "start", behavior: "smooth" });
+      lane.classList.add("flash"); setTimeout(() => lane.classList.remove("flash"), 1500);
     };
-    body.append(renderMap({ base }, d, openStep), traj);
     return { sec, openStep };
   }
 
-  /* ── all trajectories on one page ────────────────────────────── */
+  /* ── thumbnails of every trajectory; the selected one below ──── */
   async function mountList(el, base) {
     const manifest = await load(base + "manifest.json");
-    const data = await Promise.all(manifest.map((m) => load(`${base}${m.id}.json`)));
-    const byId = {};
-    const thumbs = h("nav", { class: "tx-thumbs", "aria-label": "Examples" });
+    const thumbs = h("nav", { class: "tx-thumbs", "aria-label": "Videos" });
+    const links = {};
     manifest.forEach((m, k) => {
-      const a = h("a", { class: "tx-thumb", href: `#${m.id}`, title: m.title },
+      links[m.id] = thumbs.appendChild(h("a", { class: "tx-thumb", href: `#${m.id}`, title: m.title },
         `<span class="tx-frame"><img src="${base + m.thumb}" alt="" loading="lazy"><span class="tx-thumb-n">${k + 1}</span>` +
         `<svg class="tx-play" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,.55)"/><path d="M9.5 7.5l7 4.5-7 4.5z" fill="#fff"/></svg>` +
-        `<span class="tx-dur">${fmtTime(m.duration)}</span></span><span class="tx-thumb-t">${esc(m.title)}</span>`);
-      a.addEventListener("click", (e) => {
-        e.preventDefault();
-        history.replaceState(null, "", `#${m.id}`);
-        byId[m.id].sec.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-      thumbs.appendChild(a);
+        `<span class="tx-dur">${fmtTime(m.duration)}</span></span><span class="tx-thumb-t">${esc(m.title)}</span>`));
     });
-    el.appendChild(thumbs);
-    el.appendChild(h("div", { class: "tx-legend" })).appendChild(renderLegend());
-    data.forEach((d, k) => {
-      const ex = renderExample(d, base, k + 1);
-      byId[d.id] = ex;
-      el.appendChild(ex.sec);
-    });
+    const view = h("div", { class: "tx-view", "aria-live": "polite" });
+    el.append(thumbs, view);
+
+    let cur = null, ex = null;
+    async function show(id, step) {
+      if (id !== cur) {
+        cur = id;
+        for (const [k, a] of Object.entries(links)) {
+          a.classList.toggle("on", k === id);
+          if (k === id) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+        }
+        const d = await load(`${base}${id}.json`);
+        if (cur !== id) return; // another video was picked meanwhile
+        ex = renderExample(d, base, manifest.findIndex((m) => m.id === id) + 1);
+        view.replaceChildren(ex.sec);
+      }
+      if (step) ex.openStep(step - 1);
+    }
     const go = () => {
       const [id, step] = decodeURIComponent(location.hash.slice(1)).split("/");
-      const ex = byId[id];
-      if (!ex) return;
-      if (step) ex.openStep(parseInt(step, 10) - 1); else ex.sec.scrollIntoView({ block: "start" });
+      return show(links[id] ? id : manifest[0].id, parseInt(step, 10) || 0);
     };
     window.addEventListener("hashchange", go);
-    go();
+    await go();
   }
 
-  /* ── teaser: legend + map, each step links to it on the trajectories page ── */
-  async function mountTeaser(el, base, id, href) {
+  /* ── teaser: one trajectory's map; each step links to it on the trajectories page ── */
+  async function mountTeaser(el, base, id, href, opts) {
     const d = await load(`${base}${id}.json`);
-    el.appendChild(renderLegend());
-    el.appendChild(renderMap({ base }, d, (i) => { location.href = `${href}#${id}/${i + 1}`; }));
+    el.appendChild(renderMap(d, base, Object.assign({ stepHref: (i) => `${href}#${id}/${i + 1}` }, opts)));
   }
 
   window.HPPTraj = { mountList, mountTeaser, load };

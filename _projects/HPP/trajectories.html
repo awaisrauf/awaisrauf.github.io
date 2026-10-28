@@ -10,29 +10,105 @@ permalink: /HPP/trajectories
     <meta charset="utf-8">
     <title>HPP: Reasoning Trajectories</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Ten complete reasoning trajectories of HPP on long-video benchmarks: the code it wrote, where it looked in the video, and what the VLM saw.">
+    <meta name="description"
+        content="Ten complete reasoning trajectories of HPP on long-video benchmarks: the code it wrote, where it looked in the video, and what the VLM saw.">
     <meta property="og:title" content="HPP: Reasoning Trajectories" />
-    <meta property="og:description" content="Step-by-step traces of an LLM probing long videos with code and a 2B VLM." />
+    <meta property="og:description"
+        content="Step-by-step traces of an LLM probing long videos with code and a 2B VLM." />
     <meta property="og:image" content="/assets/project_assets/HPP/main_v1.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/assets/project_assets/HPP/hpp-traj.css">
     <style>
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Noto Sans', system-ui, -apple-system, sans-serif; color: #1f2328; background: #fff; }
-        h1, h2, h3 { font-family: 'Google Sans', 'Noto Sans', sans-serif; }
-        a { color: #1f2328; }
-        .wrap { max-width: 920px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
-        .topbar { border-bottom: 1px solid #eaecef; }
-        .topbar .wrap { display: flex; align-items: center; gap: 1rem; height: 52px; }
-        .topbar a { text-decoration: none; font-size: .9rem; color: #4a5568; }
-        .topbar a:hover { color: #1f2328; }
-        .topbar .brand { font-family: 'Google Sans', 'Noto Sans', sans-serif; font-weight: 700; color: #1f2328; font-size: 1rem; }
-        .topbar .spacer { flex: 1; }
-        .intro { padding: 2.2rem 0 1.4rem; text-align: center; }
-        .intro h1 { font-size: 1.9rem; line-height: 1.25; margin: 0; font-weight: 700; }
-        #viewer { padding-bottom: 3rem; min-height: 60vh; }
-        footer { border-top: 1px solid #eaecef; padding: 1.5rem 0 2.5rem; font-size: .84rem; color: #6a737d; line-height: 1.6; }
-        noscript p { color: #4a5568; }
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans', system-ui, -apple-system, sans-serif;
+            color: #1f2328;
+            background: #fff;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Google Sans', 'Noto Sans', sans-serif;
+        }
+
+        a {
+            color: #1f2328;
+        }
+
+        .wrap {
+            max-width: 920px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .topbar {
+            border-bottom: 1px solid #eaecef;
+        }
+
+        .topbar .wrap {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            height: 52px;
+        }
+
+        .topbar a {
+            text-decoration: none;
+            font-size: .9rem;
+            color: #4a5568;
+        }
+
+        .topbar a:hover {
+            color: #1f2328;
+        }
+
+        .topbar .brand {
+            font-family: 'Google Sans', 'Noto Sans', sans-serif;
+            font-weight: 700;
+            color: #1f2328;
+            font-size: 1rem;
+        }
+
+        .topbar .spacer {
+            flex: 1;
+        }
+
+        .intro {
+            padding: 2.2rem 0 1.4rem;
+            text-align: center;
+        }
+
+        .intro h1 {
+            font-size: 1.9rem;
+            line-height: 1.25;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        #viewer {
+            padding-bottom: 3rem;
+            min-height: 60vh;
+        }
+
+        footer {
+            border-top: 1px solid #eaecef;
+            padding: 1.5rem 0 2.5rem;
+            font-size: .84rem;
+            color: #6a737d;
+            line-height: 1.6;
+        }
+
+        noscript p {
+            color: #4a5568;
+        }
     </style>
 </head>
 
@@ -53,7 +129,9 @@ permalink: /HPP/trajectories
         </section>
 
         <div id="viewer" data-base="/assets/project_assets/HPP/trajectories/"></div>
-        <noscript><p>This page needs JavaScript to render the trajectories.</p></noscript>
+        <noscript>
+            <p>This page needs JavaScript to render the trajectories.</p>
+        </noscript>
     </main>
 
     <footer>

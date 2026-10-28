@@ -24,6 +24,18 @@ permalink: /HPP
         img { max-width: 100%; height: auto; }
         .wrap { max-width: 900px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
 
+        /* top bar, as on the trajectories page */
+        .topbar { border-bottom: 1px solid #eaecef; background: #fff; }
+        .topbar .wrap { display: flex; align-items: center; gap: 1rem; height: 52px; }
+        .topbar a { text-decoration: none; font-size: .9rem; color: #4a5568; }
+        .topbar a:hover { color: #1f2328; }
+        .topbar .brand { font-family: 'Google Sans', 'Noto Sans', sans-serif; font-weight: 700; color: #1f2328; font-size: 1rem; }
+        .topbar .spacer { flex: 1; }
+        /* sections alternate between white and a light grey box in the content column, as on awaisrauf.com/ecs8060
+           (the grey ones hold no white-backed figures) */
+        .tint { margin: .5rem auto; background: #f8f8f8; border-radius: 6px; }
+        header.tint { margin-top: 1.25rem; }
+
         header { text-align: center; padding: 3rem 0 2rem; }
         .paper-title { font-size: 2.1rem; font-weight: 700; line-height: 1.25; max-width: 980px; margin: 0 auto; }
         .paper-title .hpp { color: #3f75ed; }
@@ -49,7 +61,6 @@ permalink: /HPP
         .tldr .label { font-weight: 700; color: #1f2328; }
 
         section { padding: 2.4rem 0; }
-        .sep { border: 0; border-top: 1px solid #e3e6ea; width: calc(100% - 40px); max-width: 860px; margin: 0 auto; }
         h2.section-title { font-size: 1.5rem; font-weight: 700; margin: 0 0 1.2rem; }
         .body-text { font-size: 1.02rem; line-height: 1.7; color: #2d3748; }
         figure { margin: 0 auto; text-align: center; }
@@ -76,8 +87,7 @@ permalink: /HPP
         .md-body a.fig img { display: block; width: 100%; }
 
         /* trajectory teaser */
-        .teaser-q { font-size: 1rem; line-height: 1.6; margin: 0 0 .3rem; }
-        #teaser-map { min-height: 180px; margin-top: 1rem; }
+        #teaser-map { min-height: 420px; }
         .cta { margin-top: 1.6rem; text-align: center; }
         .cta a { display: inline-block; background: #1f2328; color: #fff; padding: .5rem 1.1rem; border-radius: 999px; text-decoration: none; font-size: .92rem; font-weight: 500; }
         .cta a:hover { background: #4a5568; }
@@ -100,10 +110,31 @@ permalink: /HPP
         table.nums.main th, table.nums.main td { text-align: center; }
         table.nums.main td { font-size: 1.05rem; font-weight: 700; color: #1f2328; }
 
-        .bibtex { background: #f6f8fa; border: 1px solid #eaecef; border-radius: 6px; padding: 1rem 1.25rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        .bibtex { background: #fff; border: 1px solid #e3e6ea; border-radius: 6px; padding: 1rem 1.25rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
                   font-size: .88rem; white-space: pre; overflow-x: auto; color: #24292e; }
         footer { padding: 1.5rem 0 2rem; font-size: .85rem; color: #6a737d; }
         footer a { color: #4a5568; }
+
+        /* section rail: where the reader is */
+        section, header { scroll-margin-top: 1rem; }
+        .rail { position: fixed; top: 50%; left: max(14px, calc(50% - 450px - 172px)); z-index: 10; transform: translateY(-50%);
+                display: flex; flex-direction: column; }
+        .rail::before { content: ""; position: absolute; left: 4px; top: 14px; bottom: 14px; width: 1px; background: #dfe3e8; }
+        .rail a { position: relative; display: flex; align-items: center; gap: .75rem; padding: .38rem 0; color: #8b949e;
+                  font-size: .82rem; text-decoration: none; transition: color .15s; }
+        .rail a::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; background: #fff; border: 1.5px solid #c9d1d9;
+                          transition: background .15s, border-color .15s, transform .15s; }
+        .rail a.past::before { background: #c9d1d9; }
+        .rail a.on { color: #1f2328; font-weight: 500; }
+        .rail a.on::before { background: #3f75ed; border-color: #3f75ed; transform: scale(1.2); }
+        .rail a:hover { color: #1f2328; }
+        @media (max-width: 1260px) {
+            .rail { left: 14px; }
+            .rail span { position: absolute; left: 1.4rem; padding: .15rem .5rem; border-radius: 4px; background: #1f2328; color: #fff;
+                         white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .12s; }
+            .rail a:hover span { opacity: 1; }
+        }
+        @media (max-width: 980px) { .rail { display: none; } }
 
         @media (max-width: 680px) {
             .paper-title { font-size: 1.55rem; }
@@ -118,7 +149,25 @@ permalink: /HPP
 </head>
 
 <body>
-    <header class="wrap">
+    <nav class="rail" aria-label="Sections">
+        <a href="#overview"><span>Overview</span></a>
+        <a href="#method"><span>Method</span></a>
+        <a href="#trajectory"><span>Probing Example</span></a>
+        <a href="#results"><span>Results</span></a>
+        <a href="#bibtex"><span>BibTeX</span></a>
+    </nav>
+
+    <nav class="topbar">
+        <div class="wrap">
+            <a class="brand" href="/HPP">HPP</a>
+            <a href="/HPP/trajectories">Trajectories</a>
+            <span class="spacer"></span>
+            <a href="https://github.com/AwaisRauf/hpp">Code</a>
+            <a href="https://arxiv.org/abs/2606.21734">Paper</a>
+        </div>
+    </nav>
+
+    <header class="wrap tint" id="overview">
         <a class="venue-logo" href="https://2026.emnlp.org/"><img src="/assets/project_assets/HPP/emnlp2026.png" alt="EMNLP 2026"></a>
         <h1 class="paper-title"><span class="hpp">HPP</span>: Hierarchical Programmatic Probing
             <span class="sub">for Long Video Understanding by Decoupling Perception and Reasoning</span></h1>
@@ -150,6 +199,7 @@ permalink: /HPP
 
         <p class="tldr">
             <span class="label">TL;DR:</span>
+            We study how to improve the video understanding of LLMs.
             Vision-language models perform fine-grained perception and multi-step temporal reasoning jointly in latent space,
             limiting their ability to plan and execute multi-step strategies over long videos. We show that decoupling the two
             and reformulating long video understanding as iterative programmatic probing of a hierarchically segmented video
@@ -158,9 +208,7 @@ permalink: /HPP
         </p>
     </header>
 
-    <hr class="sep">
-
-    <section class="wrap">
+    <section class="wrap" id="method">
         <h2 class="section-title">Method</h2>
         <p class="body-text intro">A reasoning LLM starts with minimal information, devises a strategy, and executes it using code that probes
             the video through probing functions.</p>
@@ -195,20 +243,13 @@ permalink: /HPP
         </div>
     </section>
 
-    <hr class="sep">
-
-    <section class="wrap" id="trajectory">
+    <section class="wrap tint" id="trajectory">
         <h2 class="section-title">Probing Example</h2>
-        <p class="teaser-q">
-            <b>Q:</b> In the oil painting … a few women are stirring the liquid with wooden sticks. What color is the liquid inside the bucket?
-        </p>
         <div id="teaser-map"></div>
         <div class="cta"><a href="/HPP/trajectories">More Trajectories →</a></div>
     </section>
 
-    <hr class="sep">
-
-    <section class="wrap">
+    <section class="wrap" id="results">
         <h2 class="section-title">Results</h2>
         <h3 class="sub-title">1) HPP with GPT-5-mini and Qwen3-VL-2B</h3>
         <div class="panel">
@@ -258,9 +299,7 @@ permalink: /HPP
         </figure>
     </section>
 
-    <hr class="sep">
-
-    <section class="wrap" id="bibtex">
+    <section class="wrap tint" id="bibtex">
         <h2 class="section-title">BibTeX</h2>
         <div class="bibtex">@inproceedings{rauf2026hpp,
   title     = {HPP: Hierarchical Programmatic Probing for Long Video Understanding by Decoupling Perception and Reasoning},
@@ -270,8 +309,6 @@ permalink: /HPP
 }</div>
     </section>
 
-    <hr class="sep">
-
     <footer>
         <div class="wrap">Code: <a href="https://github.com/AwaisRauf/hpp">github.com/AwaisRauf/hpp</a> · Trajectories: <a href="/HPP/trajectories">/HPP/trajectories</a></div>
     </footer>
@@ -280,8 +317,26 @@ permalink: /HPP
     <script>
         (function () {
             var el = document.getElementById("teaser-map");
-            HPPTraj.mountTeaser(el, "/assets/project_assets/HPP/trajectories/", "painting-liquid", "/HPP/trajectories")
-                .catch(function () { document.getElementById("trajectory").style.display = "none"; });
+            HPPTraj.mountTeaser(el, "/assets/project_assets/HPP/trajectories/", "painting-liquid", "/HPP/trajectories", {
+                question: "In the oil painting, a few women are stirring the liquid with wooden sticks. What color is the liquid inside the bucket?"
+            }).then(function () { el.style.minHeight = "0"; })
+              .catch(function () { document.getElementById("trajectory").style.display = "none"; });
+
+            /* the rail marks the section being read: the last one whose top has passed a third of the window */
+            var links = [].slice.call(document.querySelectorAll(".rail a"));
+            var secs = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+            var spy = function () {
+                var y = window.innerHeight / 3, cur = 0;
+                secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= y) cur = i; });
+                if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = secs.length - 1;
+                links.forEach(function (a, i) { a.classList.toggle("on", i === cur); a.classList.toggle("past", i < cur); });
+            };
+            var queued = false;
+            window.addEventListener("scroll", function () {
+                if (!queued) { queued = true; requestAnimationFrame(function () { queued = false; spy(); }); }
+            }, { passive: true });
+            window.addEventListener("resize", spy);
+            spy();
             var parts = document.querySelectorAll(".method details");
             parts.forEach(function (d) {
                 d.addEventListener("toggle", function () {

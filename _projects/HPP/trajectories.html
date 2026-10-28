@@ -28,11 +28,11 @@ permalink: /HPP/trajectories
         .topbar a:hover { color: #1f2328; }
         .topbar .brand { font-family: 'Google Sans', 'Noto Sans', sans-serif; font-weight: 700; color: #1f2328; font-size: 1rem; }
         .topbar .spacer { flex: 1; }
-        .intro { padding: 2.2rem 0 1.2rem; }
+        .intro { padding: 2.2rem 0 1.4rem; text-align: center; }
         .intro h1 { font-size: 1.9rem; line-height: 1.25; margin: 0; font-weight: 700; }
         #viewer { padding-bottom: 3rem; min-height: 60vh; }
         footer { border-top: 1px solid #eaecef; padding: 1.5rem 0 2.5rem; font-size: .84rem; color: #6a737d; line-height: 1.6; }
-        noscript p { color: #b91c1c; }
+        noscript p { color: #4a5568; }
     </style>
 </head>
 
@@ -70,7 +70,7 @@ permalink: /HPP/trajectories
             var el = document.getElementById("viewer");
             var q = new URLSearchParams(location.search).get("data");
             HPPTraj.mountList(el, q || el.dataset.base).catch(function (e) {
-                el.innerHTML = '<p style="color:#b91c1c">Could not load trajectories (' + e.message + ').</p>';
+                el.innerHTML = '<p style="color:#4a5568">Could not load trajectories (' + e.message + ').</p>';
             });
         })();
     </script>
